@@ -7,6 +7,8 @@ def generate_table_of_contents(root_dir):
     toc += "|----------------|------------------------------------|\n"
     
     for subdir, _, files in os.walk(root_dir):
+        if "temp_clipboard" in subdir:
+            continue
         for file in files:
             if file.endswith(".md") and file != "README.md":
                 relative_path = os.path.relpath(os.path.join(subdir, file), root_dir)
