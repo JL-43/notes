@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-SCRIPT_PATH="$(readlink -f "$0")"
+SCRIPT_PATH="$(readlink -f "${BASH_SOURCE[0]}")"
+SCRIPT_DIR="$(dirname "$SCRIPT_PATH")"
 
 # 1. Check if cron is installed, if not, install it.
 if ! dpkg -s cron &>/dev/null; then
@@ -15,18 +16,28 @@ if ! pgrep cron >/dev/null; then
 fi
 
 # 3. Check if this script is already scheduled in cron.
-#    If not, add it to run every hour (adjust schedule as needed).
-CRON_JOB="0 * * * * ${SCRIPT_PATH}"
+#    Set to run every 10 minutes: */10 * * * *
+CRON_JOB="*/10 * * * * ${SCRIPT_PATH}"
 crontab -l 2>/dev/null | grep -F "${SCRIPT_PATH}" >/dev/null
 if [ $? -ne 0 ]; then
-    echo "Adding cron job to run the script every hour."
+    echo "Adding cron job to run the script every 10 minutes."
     (crontab -l 2>/dev/null; echo "${CRON_JOB}") | crontab -
 fi
 
-# 4. Perform the git add/commit/push steps.
-cd "$(dirname "${SCRIPT_PATH}")" || exit 1
-git add .
+# 4. Move into the script directory (assumed to be the git repo root)
+cd "${SCRIPT_DIR}" || exit 1
 
+# 5. Check if there are any changes before proceeding
+if [ -z "$(git status --porcelain)" ]; then
+    echo "No changes to commit. Exiting."
+    exit 0
+fi
+
+# 6. Add, commit, and push changes
+git add .
 timestamp=$(date +"%Y-%m-%d %H:%M:%S")
-git commit -m "auto-commit on ${timestamp}" 2>/dev/null || echo "No changes to commit."
-git push
+if git commit -m "auto-commit on ${timestamp}"; then
+    git push
+else
+    echo "No changes to commit."
+fi
