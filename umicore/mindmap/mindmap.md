@@ -1,4 +1,4 @@
-# 12092024
+# Mindmap
 
 ## PI Web API VS SQL Linked Servers
 - Ine had mentioned that she would prefer the PI API way of working as she thinks the option to work with the linked server is not production-grade
@@ -24,12 +24,12 @@
 - [x] - PM No SS
 - [x] - PM No SS - DSA
 - [x] - PM No SS - MDW
-- [ ] - Safety
-- [ ] - Safety - DSA
-- [ ] - Safety - MDW
-- [ ] - Lead Refinery
-- [ ] - Lead Refinery - DSA
-- [ ] - Lead Refinery - MDW
+- [!] - Safety
+- [!] - Safety - DSA
+- [!] - Safety - MDW
+- [x] - Lead Refinery
+- [x] - Lead Refinery - DSA
+- [x] - Lead Refinery - MDW
 
 ### Victor has validated the priority execution packages last Friday. 
 - After 1 more week of stable runs & no reporting mishaps, recommend to delete old execution packages
