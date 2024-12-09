@@ -6,3 +6,4 @@
 |----------------|------------------------------------|
 | umicore > mindmap | [mindmap](umicore/mindmap/mindmap.md) |
 | personal > my_notes | [1_hi](personal/my_notes/1_hi.md) |
+| personal > my_notes | [somewritting](personal/my_notes/somewritting.md) |
