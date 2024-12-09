@@ -3,6 +3,7 @@ We have created the initial availability report with the business called "SAC"
 The availability report from SAC is taking its data from PI with the following view that the PI team generated for us
 
 ```sql
+
  --TOP 1(ef.ID),
  ef.ID,
 ef.Name,
@@ -58,6 +59,7 @@ ef.EndTime,
 ef.Acknowledged,
 ef.AcknowledgedBy--,
 --efan.Comment
+
 ```
 
 SAC availability report was built on our 1.0 infrastructure
