@@ -12,3 +12,4 @@ I sprint myself awake, unsure of where I am going yet still, but I know I have t
 
 The air tastes a bit of iron--is it the ship or is it the blood?
 
+The drastic attempts of grasping the situation and drearing sleepiness take me to the captain's deck--and there is no captain
