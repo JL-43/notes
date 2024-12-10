@@ -2,6 +2,24 @@ import os
 import subprocess
 from datetime import datetime
 
+
+def activate_environment():
+    if not os.getenv('VIRTUAL_ENV'):
+        activate_script = os.path.join('myenv', 'bin', 'activate')
+        if os.name == 'nt':
+            activate_script += '.ps1'
+            subprocess.call(['powershell', '-ExecutionPolicy', 'Bypass', '-File', activate_script])
+        else:
+            subprocess.call(['source', activate_script], shell=True)
+    
+    # Install required packages
+    install_packages()
+
+def install_packages():
+    requirements_file = 'requirements.txt'
+    if os.path.exists(requirements_file):
+        subprocess.call(['pip', 'install', '-r', requirements_file])
+
 def generate_table_of_contents(root_dir):
     toc = "| Section        | File Name                          |\n"
     toc += "|----------------|------------------------------------|\n"
@@ -24,6 +42,25 @@ def update_readme(readme_path, toc):
         readme_file.write("# JL's notes\n\n## Table of Contents\n\n")
         readme_file.write(toc)
 
+# def convert_images(root_dir):
+#     for subdir, _, files in os.walk(root_dir):
+#         for file in files:
+#             if file.endswith((".png", ".jpg", ".jpeg")):
+#                 original_path = os.path.join(subdir, file)
+#                 webp_path = os.path.splitext(original_path)[0] + ".webp"
+                
+#                 # Check if the WebP file already exists
+#                 if os.path.exists(webp_path):
+#                     continue
+                
+#                 # Convert to WebP format
+#                 with Image.open(original_path) as img:
+#                     img = img.convert("RGB")
+#                     img.save(webp_path, "webp")
+                
+#                 # Optionally, remove the original file
+#                 # os.remove(original_path)
+
 def auto_commit(script_dir):
     os.chdir(script_dir)
     
@@ -38,32 +75,12 @@ def auto_commit(script_dir):
     commit_message = f"auto-commit on {timestamp}"
     if subprocess.run(["git", "commit", "-m", commit_message]).returncode == 0:
         subprocess.run(["git", "push"])
-    else:
-        print("No changes to commit.")
-
-def clear_temp_clipboard(temp_clipboard_dir):
-    prompt = input("Do you want to clear the files inside the 'temp_clipboard' folder? (y/N): ").strip().lower()
-    if prompt == 'y':
-        for file in os.listdir(temp_clipboard_dir):
-            file_path = os.path.join(temp_clipboard_dir, file)
-            if os.path.isfile(file_path):
-                os.remove(file_path)
-        with open(os.path.join(temp_clipboard_dir, "clipboard.md"), 'w') as clipboard_file:
-            clipboard_file.write("# Clipboard\n\n")
 
 if __name__ == "__main__":
-    root_directory = "."  # Set to your workspace root directory
-    readme_file_path = os.path.join(root_directory, "README.md")
-    
-    # Generate and update the table of contents
-    table_of_contents = generate_table_of_contents(root_directory)
-    update_readme(readme_file_path, table_of_contents)
-    
-    # Clear temp_clipboard folder if prompted
-    temp_clipboard_directory = os.path.join(root_directory, "temp_clipboard")
-    if os.path.exists(temp_clipboard_directory):
-        clear_temp_clipboard(temp_clipboard_directory)
-    
-    # Perform auto-commit actions
-    script_directory = os.path.dirname(os.path.abspath(__file__))
-    auto_commit(script_directory)
+    activate_environment()
+    # from PIL import Image
+    root_dir = os.path.dirname(os.path.abspath(__file__))
+    toc = generate_table_of_contents(root_dir)
+    update_readme(os.path.join(root_dir, 'README.md'), toc)
+    # convert_images(root_dir)
+    auto_commit(root_dir)
