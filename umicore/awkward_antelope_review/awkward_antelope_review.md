@@ -67,5 +67,3 @@
 - It could be that our data integration focused more on python and API way of working because the Data Scientists needed data, and so they "hopped" over the Data Engineering group, with the fact that TX hadn't been reliable.
 - From an operational standpoint though, Data Engineers should own the Data Integration processes, providing structured and reliable datasets for Data Scientists to build upon
   - **Key Consideration:** Are our Data Engineering practices mature enough to take full ownership of Data Integration?
-
-
