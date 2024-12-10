@@ -8,6 +8,7 @@
 | skillshift | [skillshift](skillshift/skillshift.md) |
 | umicore > mindmap | [mindmap](umicore/mindmap/mindmap.md) |
 | umicore > mindmap | [linked_servers](umicore/mindmap/linked_servers.md) |
+| umicore > awkward_antelope_review | [awkward_antelope_review](umicore/awkward_antelope_review/awkward_antelope_review.md) |
 | umicore > meeting_notes > production_deployment_guidelines_brainstorming_session | [prod_deployment_brainstorming_session](umicore/meeting_notes/production_deployment_guidelines_brainstorming_session/prod_deployment_brainstorming_session.md) |
 | umicore > availability_report | [availability_report](umicore/availability_report/availability_report.md) |
 | personal | [todo](personal/todo.md) |
