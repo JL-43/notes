@@ -1,24 +1,7 @@
 import os
 import subprocess
 from datetime import datetime
-
-
-def activate_environment():
-    if not os.getenv('VIRTUAL_ENV'):
-        activate_script = os.path.join('myenv', 'bin', 'activate')
-        if os.name == 'nt':
-            activate_script += '.ps1'
-            subprocess.call(['powershell', '-ExecutionPolicy', 'Bypass', '-File', activate_script])
-        else:
-            subprocess.call(['source', activate_script], shell=True)
-    
-    # Install required packages
-    install_packages()
-
-def install_packages():
-    requirements_file = 'requirements.txt'
-    if os.path.exists(requirements_file):
-        subprocess.call(['pip', 'install', '-r', requirements_file])
+from PIL import Image
 
 def generate_table_of_contents(root_dir):
     toc = "| Section        | File Name                          |\n"
@@ -42,24 +25,24 @@ def update_readme(readme_path, toc):
         readme_file.write("# JL's notes\n\n## Table of Contents\n\n")
         readme_file.write(toc)
 
-# def convert_images(root_dir):
-#     for subdir, _, files in os.walk(root_dir):
-#         for file in files:
-#             if file.endswith((".png", ".jpg", ".jpeg")):
-#                 original_path = os.path.join(subdir, file)
-#                 webp_path = os.path.splitext(original_path)[0] + ".webp"
+def convert_images(root_dir):
+    for subdir, _, files in os.walk(root_dir):
+        for file in files:
+            if file.endswith((".png", ".jpg", ".jpeg")):
+                original_path = os.path.join(subdir, file)
+                webp_path = os.path.splitext(original_path)[0] + ".webp"
                 
-#                 # Check if the WebP file already exists
-#                 if os.path.exists(webp_path):
-#                     continue
+                # Check if the WebP file already exists
+                if os.path.exists(webp_path):
+                    continue
                 
-#                 # Convert to WebP format
-#                 with Image.open(original_path) as img:
-#                     img = img.convert("RGB")
-#                     img.save(webp_path, "webp")
+                # Convert to WebP format
+                with Image.open(original_path) as img:
+                    img = img.convert("RGB")
+                    img.save(webp_path, "webp")
                 
-#                 # Optionally, remove the original file
-#                 # os.remove(original_path)
+                # Optionally, remove the original file
+                # os.remove(original_path)
 
 def auto_commit(script_dir):
     os.chdir(script_dir)
@@ -77,10 +60,9 @@ def auto_commit(script_dir):
         subprocess.run(["git", "push"])
 
 if __name__ == "__main__":
-    activate_environment()
-    # from PIL import Image
+    
     root_dir = os.path.dirname(os.path.abspath(__file__))
     toc = generate_table_of_contents(root_dir)
     update_readme(os.path.join(root_dir, 'README.md'), toc)
-    # convert_images(root_dir)
+    convert_images(root_dir)
     auto_commit(root_dir)
