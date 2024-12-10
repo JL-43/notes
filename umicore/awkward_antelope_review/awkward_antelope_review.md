@@ -49,7 +49,7 @@
 - Guidelines for environments
   - What activities are allowed for Dev->Test->Prod?
   - **Relevant activities for guidelines:**
-  - ![Relevant activities](image.png)
+  - ![Relevant activities](image.webp)
 
 #### Stakeholder Reporting
 
@@ -60,7 +60,7 @@
 
 - Observations on Shared Libraries Development
   - Significant effort appears to be directed toward building Shared Libraries, primarily using Python, particularly in the area of Data Ingestion.
-  - ![alt text](image-1.png)
+  - ![alt text](image-1.webp)
     - **Key Concern:** The PMR team's core skill set revolves around SQL rather than Python.
     - While it is understood that this is a shared domain with Data Scientists, representation and input from the Data Engineering team might be good.
     - Establishing a clear and consistent lingua franca for development within a domain (e.g., SQL or Python for DE domain) will have a lasting impact on future development efforts.
