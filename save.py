@@ -6,29 +6,29 @@ import json
 
 PROCESSED_FILES_PATH = os.path.join('utils', 'processed_files.json')
 
-def load_processed_files():
-    if os.path.exists(PROCESSED_FILES_PATH):
-        with open(PROCESSED_FILES_PATH, 'r') as file:
-            return json.load(file)
-    return []
+# def load_processed_files():
+#     if os.path.exists(PROCESSED_FILES_PATH):
+#         with open(PROCESSED_FILES_PATH, 'r') as file:
+#             return json.load(file)
+#     return []
 
-def save_processed_files(processed_files):
-    os.makedirs('utils', exist_ok=True)
-    with open(PROCESSED_FILES_PATH, 'w') as file:
-        json.dump(processed_files, file)
+# def save_processed_files(processed_files):
+#     os.makedirs('utils', exist_ok=True)
+#     with open(PROCESSED_FILES_PATH, 'w') as file:
+#         json.dump(processed_files, file)
 
-def rename_files_with_whitespaces(root_dir):
-    processed_files = load_processed_files()
-    updated_files = set(processed_files)
-    for subdir, _, files in os.walk(root_dir):
-        for file in files:
-            if ' ' in file and file not in processed_files:
-                old_path = os.path.join(subdir, file)
-                new_file = file.replace(' ', '_')
-                new_path = os.path.join(subdir, new_file)
-                os.rename(old_path, new_path)
-                processed_files.append(new_file)
-    save_processed_files(processed_files)
+# def rename_files_with_whitespaces(root_dir):
+#     processed_files = load_processed_files()
+#     updated_files = set(processed_files)
+#     for subdir, _, files in os.walk(root_dir):
+#         for file in files:
+#             if ' ' in file and file not in processed_files:
+#                 old_path = os.path.join(subdir, file)
+#                 new_file = file.replace(' ', '_')
+#                 new_path = os.path.join(subdir, new_file)
+#                 os.rename(old_path, new_path)
+#                 processed_files.append(new_file)
+#     save_processed_files(processed_files)
 
 def generate_table_of_contents(root_dir):
     toc = "| Section        | File Name                          |\n"
@@ -99,7 +99,7 @@ def auto_commit(script_dir):
 if __name__ == "__main__":
     root_dir = os.path.dirname(os.path.abspath(__file__))
 
-    rename_files_with_whitespaces(root_dir)
+    # rename_files_with_whitespaces(root_dir)
 
     toc = generate_table_of_contents(root_dir)
     
