@@ -44,6 +44,16 @@ def convert_images(root_dir):
                 # remove the original file
                 os.remove(original_path)
 
+def clear_temp_clipboard(temp_clipboard_dir):
+    prompt = input("Do you want to clear the files inside the 'temp_clipboard' folder? (y/N): ").strip().lower()
+    if prompt == 'y':
+        for file in os.listdir(temp_clipboard_dir):
+            file_path = os.path.join(temp_clipboard_dir, file)
+            if os.path.isfile(file_path):
+                os.remove(file_path)
+        with open(os.path.join(temp_clipboard_dir, "clipboard.md"), 'w') as clipboard_file:
+            clipboard_file.write("# Clipboard\n\n")
+
 def auto_commit(script_dir):
     os.chdir(script_dir)
     
@@ -62,7 +72,15 @@ def auto_commit(script_dir):
 if __name__ == "__main__":
     
     root_dir = os.path.dirname(os.path.abspath(__file__))
+
     toc = generate_table_of_contents(root_dir)
+    
+    temp_clipboard_directory = os.path.join(root_dir, "temp_clipboard")
+    if os.path.exists(temp_clipboard_directory):
+        clear_temp_clipboard(temp_clipboard_directory)
+    
     update_readme(os.path.join(root_dir, 'README.md'), toc)
+    
     convert_images(root_dir)
+    
     auto_commit(root_dir)
