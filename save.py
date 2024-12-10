@@ -41,8 +41,8 @@ def convert_images(root_dir):
                     img = img.convert("RGB")
                     img.save(webp_path, "webp")
                 
-                # Optionally, remove the original file
-                # os.remove(original_path)
+                # remove the original file
+                os.remove(original_path)
 
 def auto_commit(script_dir):
     os.chdir(script_dir)
