@@ -4,3 +4,4 @@
 - [ ] - Soda
 - [ ] - Beef
 - [ ] - Curry Roux
+- [ ] - Batteries AA
