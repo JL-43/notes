@@ -19,6 +19,7 @@ def save_processed_files(processed_files):
 
 def rename_files_with_whitespaces(root_dir):
     processed_files = load_processed_files()
+    updated_files = set(processed_files)
     for subdir, _, files in os.walk(root_dir):
         for file in files:
             if ' ' in file and file not in processed_files:
