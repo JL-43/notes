@@ -4,7 +4,6 @@
 
 | Section        | File Name                          |
 |----------------|------------------------------------|
-|  | [Saida's recommendations](Saida's recommendations.md) |
 |  | [2024-12-10-07-14-33](2024-12-10-07-14-33.md) |
 | skillshift | [skillshift](skillshift/skillshift.md) |
 | umicore > mindmap | [mindmap](umicore/mindmap/mindmap.md) |
