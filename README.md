@@ -4,6 +4,7 @@
 
 | Section        | File Name                          |
 |----------------|------------------------------------|
+|  | [Saida's recommendations](Saida's recommendations.md) |
 |  | [2024-12-10-07-14-33](2024-12-10-07-14-33.md) |
 | skillshift | [skillshift](skillshift/skillshift.md) |
 | umicore > mindmap | [mindmap](umicore/mindmap/mindmap.md) |
@@ -13,6 +14,7 @@
 | umicore > investigations > sac_availability_report | [11122024](umicore/investigations/sac_availability_report/11122024.md) |
 | umicore > availability_report | [connection_options](umicore/availability_report/connection_options.md) |
 | umicore > availability_report | [availability_report](umicore/availability_report/availability_report.md) |
+| personal | [Saida's recommendations](personal/Saida's recommendations.md) |
 | personal | [todo](personal/todo.md) |
 | personal | [Grocery](personal/Grocery.md) |
 | personal | [Coding_ideas](personal/Coding_ideas.md) |
