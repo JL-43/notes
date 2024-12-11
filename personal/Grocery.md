@@ -5,3 +5,4 @@
 - [ ] - Beef
 - [ ] - Curry Roux
 - [ ] - Batteries AA
+- [ ] - Laundry detergent
