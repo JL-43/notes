@@ -71,7 +71,7 @@ create table dbo.data_migration_audit
     end_date datetime not null,
     rows_processed int null,
     execution_status varchar(50) not null,   -- 'Started', 'Completed', 'Failed'
-    error_message varchar(max) null,
+    info_message varchar(max) null,
     sql_command varchar(max) not null,       -- The actual SQL that was executed
     start_time datetime not null default getdate(),
     end_time datetime null,
@@ -107,7 +107,7 @@ select
         when count(case when execution_status = 'Started' then 1 end) > 0 then 'In Progress'
         else 'Completed'
     end as batch_status,
-    string_agg(case when execution_status = 'Failed' then error_message else null end, '; ') as error_messages
+    string_agg(case when execution_status = 'Failed' then info_message else null end, '; ') as info_messages
 from dbo.data_migration_audit
 group by batch_id, source_database, source_table;
 go

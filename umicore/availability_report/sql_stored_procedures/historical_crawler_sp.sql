@@ -20,13 +20,14 @@ begin
     declare @current_date datetime;
     declare @sql nvarchar(max);
     declare @params nvarchar(max);
-    declare @error_message nvarchar(4000);
+    declare @info_message nvarchar(4000);
     declare @rows_affected int;
+    declare @msg nvarchar(2048);
 
     -- Parameter validation
     if @days_per_batch <= 0
     begin
-        raiserror('Days per batch must be greater than 0', 16, 1);
+        raiserror('ERROR: Days per batch must be greater than 0', 16, 1);
         return;
     end
 
@@ -43,8 +44,8 @@ begin
             exec sp_executesql @sql, @params, @start_date output;
         end try
         begin catch
-            set @error_message = error_message();
-            raiserror('Failed to get start date: %s', 16, 1, @error_message);
+            set @info_message = info_message();
+            raiserror('ERROR: Failed to get start date: %s', 16, 1, @info_message);
             return;
         end catch
     end
@@ -54,21 +55,29 @@ begin
     while @current_date >= @end_date
     begin
         declare @batch_start datetime = dateadd(day, -(@days_per_batch - 1), @current_date);
-		declare @batch_end datetime = @current_date;
+        declare @batch_end datetime = @current_date;
 
-        -- Add batch info logging here
+        -- Build SQL command first
+        set @sql = N'
+            insert into ' + quotename(@target_database) + '.dbo.' + quotename(@target_table) + '
+            select *
+            from ' + quotename(@source_database) + '.dbo.' + quotename(@source_table) + '
+            where cast(' + quotename(@date_column) + ' as date) >= @batch_start
+            and cast(' + quotename(@date_column) + ' as date) <= @batch_end';
+
+        -- Create batch info
         declare @batch_info nvarchar(1000) = 
-            'Batch covering ' + convert(varchar, @batch_start, 120) + 
+            'INFO: Batch covering ' + convert(varchar, @batch_start, 120) + 
             ' through ' + convert(varchar, @batch_end, 120) +
             case when @force_reprocess = 1 
                 then ' (Reprocessing forced)'
                 else '' end;
 
-        -- Then replace the existing audit insert (around line 95) with:
+        -- Initial audit insert with batch info
         insert into dbo.data_migration_audit (
             batch_id, source_database, source_table, target_database, target_table,
             date_column, start_date, end_date, execution_status, sql_command,
-            error_message
+            info_message
         )
         values (
             @batch_id, @source_database, @source_table, @target_database, @target_table,
@@ -99,8 +108,8 @@ begin
                     @batch_start, @batch_end;
             end try
             begin catch
-                set @error_message = error_message();
-                raiserror('Failed to clean existing data: %s', 10, 1, @error_message);
+                set @info_message = info_message();
+                raiserror('ERROR: Failed to clean existing data: %s', 10, 1, @info_message);
                 -- Continue processing
             end catch
         end
@@ -121,15 +130,6 @@ begin
                 from ' + quotename(@source_database) + '.dbo.' + quotename(@source_table) + '
                 where cast(' + quotename(@date_column) + ' as date) >= @batch_start
                 and cast(' + quotename(@date_column) + ' as date) <= @batch_end';
-
-            insert into dbo.data_migration_audit (
-                batch_id, source_database, source_table, target_database, target_table,
-                date_column, start_date, end_date, execution_status, sql_command
-            )
-            values (
-                @batch_id, @source_database, @source_table, @target_database, @target_table,
-                @date_column, @batch_start, @batch_end, 'Started', @sql
-            );
 
             begin try
                 begin transaction;
@@ -153,26 +153,26 @@ begin
                 if @@trancount > 0
                     rollback transaction;
 
-                set @error_message = error_message();
-
+                set @info_message = info_message();
+                
                 update dbo.data_migration_audit
                 set execution_status = 'Failed',
-                    error_message = @error_message,
+                    info_message = @info_message,
                     end_time = getdate()
                 where batch_id = @batch_id
                 and start_date = @batch_start
                 and end_date = @batch_end;
 
-                declare @msg nvarchar(2048) = formatmessage('Failed to process batch %s to %s: %s', 
+                set @msg = formatmessage('ERROR: Failed to process batch %s to %s: %s', 
                     cast(@batch_start as varchar(23)),
                     cast(@batch_end as varchar(23)),
-                    @error_message);
+                    @info_message);
 
                 raiserror(@msg, 10, 1) with nowait;
             end catch
         end
 
-         set @current_date = dateadd(day, -@days_per_batch, @current_date);
+        set @current_date = dateadd(day, -@days_per_batch, @current_date);
     end
 end;
 go
