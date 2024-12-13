@@ -1,4 +1,4 @@
-use mock_target_server;
+use target_database;
 go
 
 create or alter procedure dbo.migrate_historical_data
@@ -141,10 +141,12 @@ begin
                 and start_date = @batch_start
                 and end_date = @batch_end;
 
-                raiserror('Failed to process batch %s to %s: %s', 10, 1,
-                    convert(varchar, @batch_start, 120),
-                    convert(varchar, @batch_end, 120),
+                declare @msg nvarchar(2048) = formatmessage('Failed to process batch %s to %s: %s', 
+                    cast(@batch_start as varchar(23)),
+                    cast(@batch_end as varchar(23)),
                     @error_message);
+
+                raiserror(@msg, 10, 1) with nowait;
             end catch
         end
 
