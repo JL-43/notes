@@ -5,6 +5,7 @@
 | Section        | File Name                          |
 |----------------|------------------------------------|
 |  | [2024-12-10-07-14-33](2024-12-10-07-14-33.md) |
+|  | [deaf_teachers](deaf_teachers.md) |
 | skillshift | [skillshift](skillshift/skillshift.md) |
 | umicore > mindmap | [mindmap](umicore/mindmap/mindmap.md) |
 | umicore > mindmap | [linked_servers](umicore/mindmap/linked_servers.md) |
