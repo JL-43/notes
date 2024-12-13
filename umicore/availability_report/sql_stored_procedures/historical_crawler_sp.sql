@@ -56,6 +56,28 @@ begin
         declare @batch_start datetime = dateadd(day, -(@days_per_batch - 1), @current_date);
 		declare @batch_end datetime = @current_date;
 
+        -- Add batch info logging here
+        declare @batch_info nvarchar(1000) = 
+            'Batch covering ' + convert(varchar, @batch_start, 120) + 
+            ' through ' + convert(varchar, @batch_end, 120) +
+            case when @force_reprocess = 1 
+                then ' (Reprocessing forced)'
+                else '' end;
+
+        -- Then replace the existing audit insert (around line 95) with:
+        insert into dbo.data_migration_audit (
+            batch_id, source_database, source_table, target_database, target_table,
+            date_column, start_date, end_date, execution_status, sql_command,
+            error_message
+        )
+        values (
+            @batch_id, @source_database, @source_table, @target_database, @target_table,
+            @date_column, @batch_start, @batch_end, 
+            case when @force_reprocess = 1 then 'Started (Reprocess)' else 'Started' end,
+            @sql,
+            @batch_info
+        );
+
         -- Handle reprocessing
         if @force_reprocess = 1
         begin
