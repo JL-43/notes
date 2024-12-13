@@ -53,8 +53,8 @@ begin
 
     while @current_date >= @end_date
     begin
-        declare @batch_start datetime = dateadd(day, -@days_per_batch + 1, @current_date);
-        declare @batch_end datetime = @current_date;
+        declare @batch_start datetime = dateadd(day, -(@days_per_batch - 1), @current_date);
+		declare @batch_end datetime = @current_date;
 
         -- Handle reprocessing
         if @force_reprocess = 1
@@ -150,7 +150,7 @@ begin
             end catch
         end
 
-        set @current_date = dateadd(day, -@days_per_batch, @current_date);
+         set @current_date = dateadd(day, -@days_per_batch, @current_date);
     end
 end;
 go
