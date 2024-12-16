@@ -1,8 +1,11 @@
 # Grocery
-- [ ] - Eggs
-- [ ] - Bread
 - [ ] - Soda
 - [ ] - Beef
 - [ ] - Curry Roux
-- [ ] - Batteries AA
 - [ ] - Laundry detergent
+- [ ] - Meat
+- [ ] - Canned gooda
+- [ ] - Instant noodles
+- [ ] - Peeled tomatoes
+- [ ] - UFC and Mang Tomas
+- [ ] - salt pepper spices
