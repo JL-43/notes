@@ -21,5 +21,6 @@
 | personal > my_notes | [Coding_ideas](personal/my_notes/Coding_ideas.md) |
 | personal > my_notes | [somewritting](personal/my_notes/somewritting.md) |
 | personal > learning > tryhackme | [10122024](personal/learning/tryhackme/10122024.md) |
+| personal > diary | [2024-12-16-07-29-13](personal/diary/2024-12-16-07-29-13.md) |
 | personal > diary | [2024-12-10-07-14-33](personal/diary/2024-12-10-07-14-33.md) |
 | personal > diary | [2024-12-09-22-33-08](personal/diary/2024-12-09-22-33-08.md) |
