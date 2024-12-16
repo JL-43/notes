@@ -17,7 +17,7 @@
   
 - If there is something wrong with the pipelines, are we able to troubleshoot it?
   - View pipelines errors
-  - Deepdive into pipeline errors
+  - Deep dive into pipeline errors
   - Inspect compiled code (read only in PRD)
     - Test/Troubleshoot compiled code in a development(?) environment
     - Allow pull of relevant source data to test code?
