@@ -11,6 +11,7 @@
 | umicore > mindmap | [linked_servers](umicore/mindmap/linked_servers.md) |
 | umicore > awkward_antelope_review | [awkward_antelope_review](umicore/awkward_antelope_review/awkward_antelope_review.md) |
 | umicore > meeting_notes > production_deployment_guidelines_brainstorming_session | [prod_deployment_brainstorming_session](umicore/meeting_notes/production_deployment_guidelines_brainstorming_session/prod_deployment_brainstorming_session.md) |
+| umicore > investigations > tst_incr_load_16122024 | [investigation](umicore/investigations/tst_incr_load_16122024/investigation.md) |
 | umicore > investigations > sac_availability_report | [11122024](umicore/investigations/sac_availability_report/11122024.md) |
 | umicore > availability_report | [connection_options](umicore/availability_report/connection_options.md) |
 | umicore > availability_report | [availability_report](umicore/availability_report/availability_report.md) |
