@@ -447,23 +447,23 @@ SQL Error Number: 207
 
 ## Fix Attempt #1: Redeploy
 1. Search for relevant TX Object (DW_F_SICKNESS_CONVERSATIONS)
-   ![alt text](image.png)
+   ![alt text](image.webp)
 2. I recommend deploy and execute (to see if the code *compiles* and *runs*)
-   ![alt text](image-1.png)
+   ![alt text](image-1.webp)
 3. Success
-   ![alt text](image-2.png)
+   ![alt text](image-2.webp)
 4. Repeat for all remaining tables
    - Make sure that this really is the same case for all
    - DW_F_ACCIDENT (Success)
-   - ![alt text](image-3.png)
+   - ![alt text](image-3.webp)
    - DW_F_NOTIFICATIONCENTER (Success)
-   - ![alt text](image-4.png)
+   - ![alt text](image-4.webp)
    - DW_F_SICKNESS_CONVERSATIONS (Success)
-   - ![alt text](image-5.png)
+   - ![alt text](image-5.webp)
 5. To be *extra* sure, redeployed their equivalent custom views as well
-   - ![alt text](image-9.png)
-   - ![alt text](image-8.png)
-   - ![alt text](image-7.png)
-   - ![alt text](image-6.png)
+   - ![alt text](image-9.webp)
+   - ![alt text](image-8.webp)
+   - ![alt text](image-7.webp)
+   - ![alt text](image-6.webp)
 
 ## Check if TST - INCR LOAD now works
