@@ -30,9 +30,31 @@ PROCESSED_FILES_PATH = os.path.join('utils', 'processed_files.json')
 #                 processed_files.append(new_file)
 #     save_processed_files(processed_files)
 
+# v1
+# def generate_table_of_contents(root_dir):
+#     toc = "| Section        | File Name                          |\n"
+#     toc += "|----------------|------------------------------------|\n"
+    
+#     for subdir, _, files in os.walk(root_dir):
+#         if "temp_clipboard" in subdir:
+#             continue
+#         for file in files:
+#             if file.endswith(".md") and file != "README.md":
+#                 relative_path = os.path.relpath(os.path.join(subdir, file), root_dir)
+#                 sections = relative_path.split(os.sep)
+#                 file_name = os.path.splitext(sections[-1])[0]
+#                 section = " > ".join(sections[:-1])
+#                 toc += f"| {section} | [{file_name}]({relative_path}) |\n"
+    
+#     return toc
+
 def generate_table_of_contents(root_dir):
-    toc = "| Section        | File Name                          |\n"
-    toc += "|----------------|------------------------------------|\n"
+    toc = "# Table of Contents\n\n"
+    
+    def add_entry(section, file_name, relative_path):
+        return f"- [{file_name}]({relative_path})\n"
+    
+    sections_dict = {}
     
     for subdir, _, files in os.walk(root_dir):
         if "temp_clipboard" in subdir:
@@ -42,14 +64,23 @@ def generate_table_of_contents(root_dir):
                 relative_path = os.path.relpath(os.path.join(subdir, file), root_dir)
                 sections = relative_path.split(os.sep)
                 file_name = os.path.splitext(sections[-1])[0]
-                section = " > ".join(sections[:-1])
-                toc += f"| {section} | [{file_name}]({relative_path}) |\n"
+                section = " / ".join(sections[:-1])
+                
+                if section not in sections_dict:
+                    sections_dict[section] = []
+                sections_dict[section].append((file_name, relative_path))
+    
+    for section, entries in sections_dict.items():
+        if section:
+            toc += f"## {section}\n"
+        for file_name, relative_path in entries:
+            toc += add_entry(section, file_name, relative_path)
     
     return toc
 
 def update_readme(readme_path, toc):
     with open(readme_path, 'w') as readme_file:
-        readme_file.write("# JL's notes\n\n## Table of Contents\n\n")
+        readme_file.write("# JL's notes\n\n")
         readme_file.write(toc)
 
 def convert_images(root_dir):
