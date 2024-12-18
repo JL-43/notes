@@ -23,6 +23,7 @@
 - [availability_report](umicore/availability_report/availability_report.md)
 ## blog
 - [1_beginnings](blog/1_beginnings.md)
+- [latest_article](blog/latest_article.md)
 ## personal
 - [Saida's recommendations](personal/Saida's recommendations.md)
 - [todo](personal/todo.md)

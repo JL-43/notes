@@ -36,9 +36,15 @@ def generate_table_of_contents(root_dir, target_dir=None):
     
     return toc
 
-def update_readme(readme_path, toc):
+def update_readme(readme_path, toc, latest_article_path):
     with open(readme_path, 'w') as readme_file:
-        readme_file.write("# JL's notes\n\n")
+        readme_file.write("# Latest Article\n\n")
+        
+        if os.path.exists(latest_article_path):
+            with open(latest_article_path, 'r') as article_file:
+                readme_file.write(article_file.read())
+                readme_file.write("\n\n")
+        
         readme_file.write(toc)
 
 def update_personal_toc(toc_path, toc):
@@ -104,6 +110,7 @@ if __name__ == "__main__":
 
     # Generate ToC for the public folder
     public_toc = generate_table_of_contents(root_dir, target_dir='public')
+    latest_article_path = os.path.join(root_dir, 'public', 'latest_article.md')
     update_readme(os.path.join(root_dir, 'README.md'), public_toc)
     
     temp_clipboard_directory = os.path.join(root_dir, "temp_clipboard")
