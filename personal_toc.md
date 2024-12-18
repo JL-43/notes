@@ -21,6 +21,8 @@
 ## umicore / availability_report
 - [connection_options](umicore/availability_report/connection_options.md)
 - [availability_report](umicore/availability_report/availability_report.md)
+## blog
+- [1_beginnings](blog/1_beginnings.md)
 ## personal
 - [Saida's recommendations](personal/Saida's recommendations.md)
 - [todo](personal/todo.md)
@@ -38,5 +40,3 @@
 - [2024-12-16-16-14-33](personal/diary/2024-12-16-16-14-33.md)
 - [2024-12-10-07-14-33](personal/diary/2024-12-10-07-14-33.md)
 - [2024-12-09-22-33-08](personal/diary/2024-12-09-22-33-08.md)
-## public
-- [1_beginnings](public/1_beginnings.md)
