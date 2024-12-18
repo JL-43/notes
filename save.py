@@ -45,6 +45,8 @@ def update_readme(readme_path, toc, latest_article_path):
             with open(latest_article_path, 'r') as article_file:
                 readme_file.write(article_file.read())
                 readme_file.write("\n\n")
+        else:
+            print("No latest article found.")
         
         readme_file.write(toc)
 
