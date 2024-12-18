@@ -106,10 +106,10 @@ if __name__ == "__main__":
     personal_toc = generate_table_of_contents(root_dir)
     update_personal_toc(os.path.join(root_dir, 'personal_toc.md'), personal_toc)
 
-    # Generate ToC for the public folder
-    public_toc = generate_table_of_contents(root_dir, target_dir='public')
-    latest_article_path = os.path.join(root_dir, 'public', 'latest_article.md')
-    update_readme(os.path.join(root_dir, 'README.md'), public_toc, latest_article_path)
+    # Generate ToC for the blog folder
+    blog_toc = generate_table_of_contents(root_dir, target_dir='blog')
+    latest_article_path = os.path.join(root_dir, 'blog', 'latest_article.md')
+    update_readme(os.path.join(root_dir, 'README.md'), blog_toc, latest_article_path)
     
     temp_clipboard_directory = os.path.join(root_dir, "temp_clipboard")
     if os.path.exists(temp_clipboard_directory):
