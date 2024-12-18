@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
     # Generate ToC for the public folder
     public_toc = generate_table_of_contents(root_dir, target_dir='public')
-    update_readme(os.path.join(root_dir, 'README.md'), public_toc)
+    update_readme(os.path.join(root_dir, 'README.md'), public_toc, os.path.join(root_dir, 'blog', 'latest_article.md'))
     
     # Convert README.md to index.html
     convert_readme_to_html(os.path.join(root_dir, 'README.md'), os.path.join(root_dir, 'index.html'))
