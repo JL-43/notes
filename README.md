@@ -4,6 +4,8 @@
 
 | Section        | File Name                          |
 |----------------|------------------------------------|
+|  | [2024-12-17-07-20-26](2024-12-17-07-20-26.md) |
+|  | [deaf_teachers](deaf_teachers.md) |
 | skillshift | [skillshift](skillshift/skillshift.md) |
 | umicore > mindmap | [mindmap](umicore/mindmap/mindmap.md) |
 | umicore > mindmap | [linked_servers](umicore/mindmap/linked_servers.md) |
@@ -20,7 +22,10 @@
 | personal > my_notes | [1_hi](personal/my_notes/1_hi.md) |
 | personal > my_notes | [Coding_ideas](personal/my_notes/Coding_ideas.md) |
 | personal > my_notes | [somewritting](personal/my_notes/somewritting.md) |
+| personal > my_notes | [Coding ideas](personal/my_notes/Coding ideas.md) |
 | personal > learning > tryhackme | [10122024](personal/learning/tryhackme/10122024.md) |
 | personal > diary | [2024-12-16-07-29-13](personal/diary/2024-12-16-07-29-13.md) |
+| personal > diary | [2024-12-16-16-14-33](personal/diary/2024-12-16-16-14-33.md) |
 | personal > diary | [2024-12-10-07-14-33](personal/diary/2024-12-10-07-14-33.md) |
 | personal > diary | [2024-12-09-22-33-08](personal/diary/2024-12-09-22-33-08.md) |
+| public | [1_beginnings](public/1_beginnings.md) |
