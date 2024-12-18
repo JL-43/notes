@@ -9,7 +9,7 @@ if __name__ == "__main__":
 
     # Generate ToC for the entire project
     personal_toc = generate_table_of_contents(root_dir)
-    update_personal_toc(os.path.join(root_dir, 'personal_toc.md'), personal_toc)
+    update_personal_toc(os.path.join(root_dir, 'bogart.md'), personal_toc)
 
     # Generate ToC for the public folder
     public_toc = generate_table_of_contents(root_dir, target_dir='public')
