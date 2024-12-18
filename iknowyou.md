@@ -4,7 +4,6 @@
 
 - [2024-12-17-07-20-26](2024-12-17-07-20-26.md)
 - [deaf_teachers](deaf_teachers.md)
-- [personal_toc](personal_toc.md)
 ## skillshift
 - [skillshift](skillshift/skillshift.md)
 ## umicore / mindmap
