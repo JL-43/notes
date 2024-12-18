@@ -1,4 +1,4 @@
-# JL's notes
+# Latest Article
 
 # Table of Contents
 

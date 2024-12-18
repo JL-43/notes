@@ -55,11 +55,6 @@ def update_personal_toc(toc_path, toc):
         toc_file.write("# Personal Table of Contents\n\n")
         toc_file.write(toc)
 
-def update_readme(readme_path, toc):
-    with open(readme_path, 'w') as readme_file:
-        readme_file.write("# JL's notes\n\n")
-        readme_file.write(toc)
-
 def convert_images(root_dir):
     for subdir, _, files in os.walk(root_dir):
         for file in files:
@@ -114,7 +109,7 @@ if __name__ == "__main__":
     # Generate ToC for the public folder
     public_toc = generate_table_of_contents(root_dir, target_dir='public')
     latest_article_path = os.path.join(root_dir, 'public', 'latest_article.md')
-    update_readme(os.path.join(root_dir, 'README.md'), public_toc)
+    update_readme(os.path.join(root_dir, 'README.md'), public_toc, latest_article_path)
     
     temp_clipboard_directory = os.path.join(root_dir, "temp_clipboard")
     if os.path.exists(temp_clipboard_directory):
