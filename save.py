@@ -4,51 +4,7 @@ from datetime import datetime
 from PIL import Image
 import json
 
-PROCESSED_FILES_PATH = os.path.join('utils', 'processed_files.json')
-
-# def load_processed_files():
-#     if os.path.exists(PROCESSED_FILES_PATH):
-#         with open(PROCESSED_FILES_PATH, 'r') as file:
-#             return json.load(file)
-#     return []
-
-# def save_processed_files(processed_files):
-#     os.makedirs('utils', exist_ok=True)
-#     with open(PROCESSED_FILES_PATH, 'w') as file:
-#         json.dump(processed_files, file)
-
-# def rename_files_with_whitespaces(root_dir):
-#     processed_files = load_processed_files()
-#     updated_files = set(processed_files)
-#     for subdir, _, files in os.walk(root_dir):
-#         for file in files:
-#             if ' ' in file and file not in processed_files:
-#                 old_path = os.path.join(subdir, file)
-#                 new_file = file.replace(' ', '_')
-#                 new_path = os.path.join(subdir, new_file)
-#                 os.rename(old_path, new_path)
-#                 processed_files.append(new_file)
-#     save_processed_files(processed_files)
-
-# v1
-# def generate_table_of_contents(root_dir):
-#     toc = "| Section        | File Name                          |\n"
-#     toc += "|----------------|------------------------------------|\n"
-    
-#     for subdir, _, files in os.walk(root_dir):
-#         if "temp_clipboard" in subdir:
-#             continue
-#         for file in files:
-#             if file.endswith(".md") and file != "README.md":
-#                 relative_path = os.path.relpath(os.path.join(subdir, file), root_dir)
-#                 sections = relative_path.split(os.sep)
-#                 file_name = os.path.splitext(sections[-1])[0]
-#                 section = " > ".join(sections[:-1])
-#                 toc += f"| {section} | [{file_name}]({relative_path}) |\n"
-    
-#     return toc
-
-def generate_table_of_contents(root_dir):
+def generate_table_of_contents(root_dir, target_dir=None):
     toc = "# Table of Contents\n\n"
     
     def add_entry(section, file_name, relative_path):
@@ -62,6 +18,8 @@ def generate_table_of_contents(root_dir):
         for file in files:
             if file.endswith(".md") and file != "README.md":
                 relative_path = os.path.relpath(os.path.join(subdir, file), root_dir)
+                if target_dir and not relative_path.startswith(target_dir):
+                    continue
                 sections = relative_path.split(os.sep)
                 file_name = os.path.splitext(sections[-1])[0]
                 section = " / ".join(sections[:-1])
@@ -77,6 +35,16 @@ def generate_table_of_contents(root_dir):
             toc += add_entry(section, file_name, relative_path)
     
     return toc
+
+def update_readme(readme_path, toc):
+    with open(readme_path, 'w') as readme_file:
+        readme_file.write("# JL's notes\n\n")
+        readme_file.write(toc)
+
+def update_personal_toc(toc_path, toc):
+    with open(toc_path, 'w') as toc_file:
+        toc_file.write("# Personal Table of Contents\n\n")
+        toc_file.write(toc)
 
 def update_readme(readme_path, toc):
     with open(readme_path, 'w') as readme_file:
@@ -130,15 +98,17 @@ def auto_commit(script_dir):
 if __name__ == "__main__":
     root_dir = os.path.dirname(os.path.abspath(__file__))
 
-    # rename_files_with_whitespaces(root_dir)
+    # Generate ToC for the entire project
+    personal_toc = generate_table_of_contents(root_dir)
+    update_personal_toc(os.path.join(root_dir, 'personal_toc.md'), personal_toc)
 
-    toc = generate_table_of_contents(root_dir)
+    # Generate ToC for the public folder
+    public_toc = generate_table_of_contents(root_dir, target_dir='public')
+    update_readme(os.path.join(root_dir, 'README.md'), public_toc)
     
     temp_clipboard_directory = os.path.join(root_dir, "temp_clipboard")
     if os.path.exists(temp_clipboard_directory):
         clear_temp_clipboard(temp_clipboard_directory)
-    
-    update_readme(os.path.join(root_dir, 'README.md'), toc)
     
     convert_images(root_dir)
     
