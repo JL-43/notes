@@ -41,6 +41,7 @@ def update_readme(readme_path, toc, latest_article_path):
         readme_file.write("# Latest Article\n\n")
         
         if os.path.exists(latest_article_path):
+            print(f"Adding the latest article to the README file: {latest_article_path}")
             with open(latest_article_path, 'r') as article_file:
                 readme_file.write(article_file.read())
                 readme_file.write("\n\n")
