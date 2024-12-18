@@ -3,6 +3,7 @@ import subprocess
 from datetime import datetime
 from PIL import Image
 import json
+import markdown2
 
 def generate_table_of_contents(root_dir, target_dir=None):
     toc = "# Table of Contents\n\n"
@@ -99,6 +100,15 @@ def auto_commit(script_dir):
     if subprocess.run(["git", "commit", "-m", commit_message]).returncode == 0:
         subprocess.run(["git", "push"])
 
+def convert_readme_to_html(readme_path, html_path):
+    with open(readme_path, 'r') as readme_file:
+        readme_content = readme_file.read()
+    
+    html_content = markdown2.markdown(readme_content)
+    
+    with open(html_path, 'w') as html_file:
+        html_file.write(html_content)
+
 if __name__ == "__main__":
     root_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -109,8 +119,12 @@ if __name__ == "__main__":
     # Generate ToC for the blog folder
     blog_toc = generate_table_of_contents(root_dir, target_dir='blog')
     latest_article_path = os.path.join(root_dir, 'blog', 'latest_article.md')
+    readme_path = os.path.join(root_dir, 'README.md')
     update_readme(os.path.join(root_dir, 'README.md'), blog_toc, latest_article_path)
     
+    # Convert README.md to index.html
+    convert_readme_to_html(readme_path, os.path.join(root_dir, 'index.html'))
+
     temp_clipboard_directory = os.path.join(root_dir, "temp_clipboard")
     if os.path.exists(temp_clipboard_directory):
         clear_temp_clipboard(temp_clipboard_directory)
