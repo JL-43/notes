@@ -104,7 +104,7 @@ if __name__ == "__main__":
 
     # Generate ToC for the entire project
     personal_toc = generate_table_of_contents(root_dir)
-    update_personal_toc(os.path.join(root_dir, 'iknowyou.md'), personal_toc)
+    update_personal_toc(os.path.join(root_dir, 'bogart.md'), personal_toc)
 
     # Generate ToC for the blog folder
     blog_toc = generate_table_of_contents(root_dir, target_dir='blog')
