@@ -9,8 +9,7 @@ from utils.file_utils import clear_temp_clipboard, convert_readme_to_html
 def generate_tailwind_css():
     try:
         subprocess.run([
-            "npx", 
-            "tailwindcss", 
+            "./tailwindcss/tailwindcss-linux-x64", 
             "-i", 
             "./assets/css/input.css", 
             "-o", 
