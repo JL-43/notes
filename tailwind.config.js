@@ -1,13 +1,33 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./utils/**/*.py",    // matches your Python template files
-    "./**/*.html",        // matches generated HTML files
+    "./utils/**/*.py",
+    "./**/*.html",
   ],
   theme: {
-    extend: {},
+    extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            'th': {
+              padding: '0.75rem',
+              borderWidth: '1px',
+              borderColor: '#e5e7eb',
+            },
+            'td': {
+              padding: '0.75rem',
+              borderWidth: '1px',
+              borderColor: '#e5e7eb',
+            },
+            'table': {
+              borderCollapse: 'collapse',
+              width: '100%',
+            }
+          }
+        }
+      }
+    }
   },
   plugins: [
-    require('@tailwindcss/typography'), // for prose classes used in your HTML template
-  ],
-};
+    require('@tailwindcss/typography')
+  ]
+}

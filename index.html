@@ -1,22 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="assets/css/style.css" rel="stylesheet">
-    <title>JL's Notes</title>
-</head>
-<body class="bg-gray-100">
-    <div class="container mx-auto px-4 py-8">
-        <header class="mb-8 bg-white shadow-lg rounded-lg p-6">
-            <h1 class="text-4xl font-bold text-gray-800">JL's Notes</h1>
-            <nav class="mt-4">
-                <a href="#latest-article" class="text-blue-600 hover:text-blue-800 mr-4">Latest Article</a>
-                <a href="#table-of-contents" class="text-blue-600 hover:text-blue-800">Table of Contents</a>
-            </nav>
-        </header>
-        <main class="prose prose-lg max-w-none bg-white shadow-lg rounded-lg p-8">
-            <h1>Latest Article</h1>
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href="assets/css/style.css" rel="stylesheet">
+            <title>JL's Notes</title>
+        </head>
+        <body class="bg-gray-100">
+            <div class="container mx-auto px-4 py-8">
+                <header class="mb-8 bg-white shadow-lg rounded-lg p-6">
+                    <h1 class="text-4xl font-bold text-gray-800">JL's Notes</h1>
+                    <nav class="mt-4">
+                        <a href="#latest-article" class="text-blue-600 hover:text-blue-800 mr-4">Latest Article</a>
+                        <a href="#table-of-contents" class="text-blue-600 hover:text-blue-800">Table of Contents</a>
+                    </nav>
+                </header>
+                <main class="prose prose-lg max-w-none bg-white shadow-lg rounded-lg p-8">
+                    <h1>Latest Article</h1>
 
 <h1>Understanding Isolation in ACID Transactions</h1>
 
@@ -88,13 +89,54 @@
 
 <p>Databases handle isolation with different levels. Here's a quick look:</p>
 
-<p>| Isolation Level    | Dirty Reads | Non-Repeatable Reads | Phantom Reads | Lost Updates |
-| ------------------ | ----------- | -------------------- | ------------- | ------------ |
-| Read Uncommitted   | ✔️          | ✔️                   | ✔️            | ✔️           |
-| Read Committed     | ❌          | ✔️                   | ✔️            | ✔️           |
-| Repeatable Read    | ❌          | ❌                   | ✔️            | ❌           |
-| Snapshot Isolation | ❌          | ❌                   | ❌ (mostly)   | ❌           |
-| Serializable       | ❌          | ❌                   | ❌            | ❌           |</p>
+<table>
+<thead>
+<tr>
+  <th>Isolation Level</th>
+  <th>Dirty Reads</th>
+  <th>Non-Repeatable Reads</th>
+  <th>Phantom Reads</th>
+  <th>Lost Updates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Read Uncommitted</td>
+  <td>✔️</td>
+  <td>✔️</td>
+  <td>✔️</td>
+  <td>✔️</td>
+</tr>
+<tr>
+  <td>Read Committed</td>
+  <td>❌</td>
+  <td>✔️</td>
+  <td>✔️</td>
+  <td>✔️</td>
+</tr>
+<tr>
+  <td>Repeatable Read</td>
+  <td>❌</td>
+  <td>❌</td>
+  <td>✔️</td>
+  <td>❌</td>
+</tr>
+<tr>
+  <td>Snapshot Isolation</td>
+  <td>❌</td>
+  <td>❌</td>
+  <td>❌ (mostly)</td>
+  <td>❌</td>
+</tr>
+<tr>
+  <td>Serializable</td>
+  <td>❌</td>
+  <td>❌</td>
+  <td>❌</td>
+  <td>❌</td>
+</tr>
+</tbody>
+</table>
 
 <p>✔️ = Can Happen, ❌ = Prevented</p>
 
@@ -241,14 +283,12 @@ END IF;
 <h2>blog</h2>
 
 <ul>
-<li><a href="blog/1_beginnings.md">1_beginnings</a></li>
-<li><a href="blog/latest_article.md">latest_article</a></li>
+<li><a href="blog/1_beginnings">1_beginnings</a></li>
+<li><a href="blog/latest_article">latest_article</a></li>
 </ul>
 
-        </main>
-        <footer class="mt-8 text-center text-gray-600">
-            <p>&copy; 2024 JL. All rights reserved.</p>
-        </footer>
-    </div>
-</body>
-</html>
+                </main>
+            </div>
+        </body>
+        </html>
+    
