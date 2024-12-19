@@ -4,8 +4,10 @@ def generate_table_of_contents(root_dir, target_dir=None):
     toc = "# Table of Contents\n\n"
     
     def add_entry(section, file_name, relative_path):
-        link_path = relative_path.replace('.md', '')
-        return f"- [{file_name}]({link_path})\n"
+        # link_path = relative_path.replace('.md', '')
+        # return f"- [{file_name}]({link_path})\n"
+
+        return f"- [{file_name}]({relative_path})\n"
     
     sections_dict = {}
     
