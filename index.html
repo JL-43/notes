@@ -1,12 +1,221 @@
 <h1>Latest Article</h1>
 
-<h1>Working as a Data Engineer in Europe</h1>
+<h1>Understanding Isolation in ACID Transactions</h1>
+
+<p>When databases perform multiple tasks at the same time, isolation ensures that each task doesn't mess up the others. Imagine working on a group project where everyone needs to focus on their part without interruptions. This document breaks down these concepts to make them easier to understand.</p>
+
+<hr />
+
+<h2><strong>Easy Analogy: Library Study Rooms</strong></h2>
+
+<p>Picture this: you're in a library, using a quiet study room:</p>
+
+<ol>
+<li><p><strong>Dirty Reads</strong>:</p>
 
 <ul>
-<li>Entry: 18/12/2024
-<h1>Yes, I'm now a DD/MM/YYYY supported since I moved here</h1></li>
+<li>You're reading a draft of a book that someone else slid under your door. Later, they tell you the draft was full of mistakes.</li>
+</ul></li>
+<li><p><strong>Non-Repeatable Reads</strong>:</p>
+
+<ul>
+<li>You check the catalog and see a book is available. When you go to grab it, someone else has already borrowed it.</li>
+</ul></li>
+<li><p><strong>Phantom Reads</strong>:</p>
+
+<ul>
+<li>You search for all books on a topic and find 10. While deciding, someone adds another book, so now there are 11.</li>
+</ul></li>
+<li><p><strong>Lost Updates</strong>:</p>
+
+<ul>
+<li>You and a friend edit the same book. You write a note on page 10, but their notes overwrite yours.</li>
+</ul></li>
+</ol>
+
+<hr />
+
+<h2><strong>What Can Go Wrong?</strong></h2>
+
+<ol>
+<li><p><strong>Dirty Reads</strong>:</p>
+
+<ul>
+<li>Reading unfinished changes.</li>
+<li>Problem: Acting on bad data.</li>
+</ul></li>
+<li><p><strong>Non-Repeatable Reads</strong>:</p>
+
+<ul>
+<li>Data changes between your checks.</li>
+<li>Problem: Inconsistent info.</li>
+</ul></li>
+<li><p><strong>Phantom Reads</strong>:</p>
+
+<ul>
+<li>New data shows up during your task.</li>
+<li>Problem: Your results might miss something.</li>
+</ul></li>
+<li><p><strong>Lost Updates</strong>:</p>
+
+<ul>
+<li>Two tasks change the same data, but only one gets saved.</li>
+<li>Problem: Important updates disappear.</li>
+</ul></li>
+</ol>
+
+<hr />
+
+<h2><strong>Levels of Isolation</strong></h2>
+
+<p>Databases handle isolation with different levels. Here's a quick look:</p>
+
+<p>| Isolation Level    | Dirty Reads | Non-Repeatable Reads | Phantom Reads | Lost Updates |
+| ------------------ | ----------- | -------------------- | ------------- | ------------ |
+| Read Uncommitted   | ✔️          | ✔️                   | ✔️            | ✔️           |
+| Read Committed     | ❌          | ✔️                   | ✔️            | ✔️           |
+| Repeatable Read    | ❌          | ❌                   | ✔️            | ❌           |
+| Snapshot Isolation | ❌          | ❌                   | ❌ (mostly)   | ❌           |
+| Serializable       | ❌          | ❌                   | ❌            | ❌           |</p>
+
+<p>✔️ = Can Happen, ❌ = Prevented</p>
+
+<hr />
+
+<h3><strong>Details of Each Level</strong></h3>
+
+<ol>
+<li><p><strong>Read Uncommitted</strong>:</p>
+
+<ul>
+<li>Reads changes even if they're not finished.</li>
+<li>Problems: Dirty reads, inconsistent data.</li>
+<li>Good for: Quick, low-risk tasks.</li>
+</ul></li>
+<li><p><strong>Read Committed</strong>:</p>
+
+<ul>
+<li>Reads only finished changes.</li>
+<li>Problems: Data might change mid-task.</li>
+<li>Good for: Balancing speed and accuracy.</li>
+</ul></li>
+<li><p><strong>Repeatable Read</strong>:</p>
+
+<ul>
+<li>Sees the same data throughout the task.</li>
+<li>Problems: New data can still appear.</li>
+<li>Good for: Finances or important records.</li>
+</ul></li>
+<li><p><strong>Snapshot Isolation</strong>:</p>
+
+<ul>
+<li>Each task gets its own snapshot of data.</li>
+<li>Problems: Rare phantom data issues.</li>
+<li>Good for: Big reports or analysis.</li>
+</ul></li>
+<li><p><strong>Serializable</strong>:</p>
+
+<ul>
+<li>Treats each task as if it's running alone.</li>
+<li>Problems: Slower performance.</li>
+<li>Good for: Critical operations where mistakes can't happen.</li>
+</ul></li>
+</ol>
+
+<hr />
+
+<h2><strong>How It's Done</strong></h2>
+
+<ol>
+<li><p><strong>Locks</strong>:</p>
+
+<ul>
+<li>Stops others from using the data you're changing.</li>
+<li>Example:
+<code>
+BEGIN TRANSACTION;
+LOCK TABLE accounts;
+UPDATE accounts SET balance = balance - 100 WHERE id = 1;
+COMMIT;
+</code></li>
+</ul></li>
+<li><p><strong>Multiversion Concurrency Control (MVCC)</strong>:</p>
+
+<ul>
+<li>Everyone sees their own version of the data.</li>
+<li>Example:
+<code>
+BEGIN TRANSACTION;
+SELECT * FROM orders AS OF SYSTEM_TIME '2024-01-01T00:00:00';
+UPDATE orders SET status = 'processed' WHERE id = 101;
+COMMIT;
+</code></li>
+</ul></li>
+<li><p><strong>Timestamp Ordering</strong>:</p>
+
+<ul>
+<li>Decides who gets to change data based on time.</li>
+<li>Example:
+<code>
+BEGIN TRANSACTION;
+SELECT current_timestamp;
+IF transaction_timestamp &lt; last_committed_timestamp THEN
+  ROLLBACK;
+ELSE
+  INSERT INTO logs (event) VALUES ('transaction approved');
+  COMMIT;
+END IF;
+</code></li>
+</ul></li>
+</ol>
+
+<hr />
+
+<h2><strong>Choosing the Right Level</strong></h2>
+
+<ul>
+<li><p><strong>Read Uncommitted/Read Committed</strong>:</p>
+
+<ul>
+<li>Fast but might lead to errors.</li>
+</ul></li>
+<li><p><strong>Repeatable Read</strong>:</p>
+
+<ul>
+<li>Slower but safer for important tasks.</li>
+</ul></li>
+<li><p><strong>Serializable</strong>:</p>
+
+<ul>
+<li>Very safe but can slow everything down.</li>
+</ul></li>
 </ul>
 
-<h1>It's hard B-)</h1>
+<p>Pick the level that works best for what you're doing!</p>
+
+<hr />
+
+<h2><strong>Want to Learn More?</strong></h2>
+
+<ul>
+<li><p><strong>Books</strong>:</p>
+
+<ul>
+<li>"Database System Concepts" by Silberschatz, Korth, and Sudarshan</li>
+<li>"Transaction Processing: Concepts and Techniques" by Jim Gray and Andreas Reuter</li>
+</ul></li>
+<li><p><strong>Online Resources</strong>:</p>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/ACID">ACID Transactions - Wikipedia</a></li>
+<li><a href="https://learn.microsoft.com/en-us/sql/t-sql/statements/set-transaction-isolation-level-transact-sql">Isolation Levels in SQL Server - Microsoft Docs</a></li>
+</ul></li>
+<li><p><strong>Research Papers</strong>:</p>
+
+<ul>
+<li>"A Critique of ANSI SQL Isolation Levels" by Hal Berenson et al.</li>
+<li>"Consistency in Database Systems" by Theo Haerder and Andreas Reuter</li>
+</ul></li>
+</ul>
 
 <h1>Table of Contents</h1>
