@@ -160,3 +160,6 @@ Pick the level that works best for what you're doing!
 
 # Table of Contents
 
+## blog
+- [1_beginnings](blog/1_beginnings.md)
+- [latest_article](blog/latest_article.md)
