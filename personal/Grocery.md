@@ -1,11 +1,12 @@
 # Grocery
-- [ ] - Soda
-- [ ] - Beef
-- [ ] - Curry Roux
-- [ ] - Laundry detergent
-- [ ] - Meat
-- [ ] - Canned gooda
-- [ ] - Instant noodles
-- [ ] - Peeled tomatoes
-- [ ] - UFC and Mang Tomas
-- [ ] - salt pepper spices
+- [ ] Salt pepper spices
+- [ ] Soda
+- [ ] Canned goods
+- [ ] Dishwashing Soap
+- [ ] Laundry detergent
+- [ ] Instant noodles
+
+- [ ] Meat
+- [ ] UFC and Mang Tomas
+- [ ] Curry Roux
+- [ ] Peeled tomatoes
