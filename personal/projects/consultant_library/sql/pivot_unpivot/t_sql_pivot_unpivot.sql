@@ -4,6 +4,13 @@
  *  It transforms a "tall" table of monthly sales into a "wide" format, with separate
  *  columns for each month. You can adapt this snippet for any set of pivot columns
  *  or different grouping levels by modifying the WITH clauses and the pivot logic.
+ *
+ * FAQ:
+ *  - Why define p and u alias but not use? 
+ *  In T-SQL (and some other SQL dialects), when you use the pivot or unpivot operator, 
+ *  the syntax requires you to provide an alias (in your examples, p for the pivot and u for the unpivot). 
+ *  Even if you don’t explicitly reference that alias in subsequent code 
+ *  (for example, you're not writing p.mycolumn in the select list), the alias is still mandatory.
 */
 
 with original_table as ( -- * tall table
