@@ -4,4 +4,5 @@
 - Must be reusable with an extra focus on DOCUMENTING and keeping the logic EXPLICIT
   - When revisited, easy to pick up again
   - Logic is implemented in SQL Server / T-SQL
+  - TODO: Logic for different SQL dialects
 
