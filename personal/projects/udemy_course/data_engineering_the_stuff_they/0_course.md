@@ -13,6 +13,8 @@ This course will be SQL-focused. You will find that the longer you are in the Da
 
 I am considering a Python-focused edition though!
 
+Please check the course outline, as it will very clearly dictate if the lessons will be beneficial for you. The beginning section is quite conceptual as we will be building on the later topics, but you could always go directly to the topics that are relevant for you.
+
 ## Course Outline
 
 ### 1. Introduction to Real-World Data Engineering
@@ -58,7 +60,11 @@ I am considering a Python-focused edition though!
 - Common masking techniques and tools
 - Balancing data utility with privacy requirements
 
-### 9. Additional Topics & Real-World Considerations
+### 9. Data Cleaning
+- How to deduplicate
+
+### 10. Additional Topics & Real-World Considerations
 - Schema evolution and handling breaking changes
+- Clean SQL Code (best practice)
 - Performance tuning and indexing strategies
 - Working with data quality checks and observability tools
