@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 import re
+from fuzzywuzzy import process
 
 app = Flask(__name__)
 
@@ -96,6 +97,25 @@ def table_view(table_name):
                            type_vis_path=type_vis_path, 
                            table_data=table_data)
 
+@app.route('/search')
+def search():
+    query = request.args.get('query', '')
+    if not query:
+        return "<h1>Error: No search query provided.</h1>"
+
+    # Load data
+    file_path = './files/pi_tables_read.rpt'
+    df = load_data(file_path).drop_duplicates()
+
+    # Perform fuzzy search on ColumnName
+    column_names = df['ColumnName'].unique()
+    matches = process.extract(query, column_names, limit=10)
+    matched_columns = [match[0] for match in matches]
+
+    # Filter results based on matched columns and deduplicate
+    results = df[df['ColumnName'].isin(matched_columns)].drop_duplicates(subset=['TableName', 'ColumnName']).to_dict(orient='records')
+
+    return render_template("search_results.html", query=query, results=results)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
