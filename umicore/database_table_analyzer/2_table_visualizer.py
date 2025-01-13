@@ -48,6 +48,17 @@ def create_visualizations_for_table(df, table_name):
     plt.savefig(column_path)
     plt.close()
 
+    # Sample value distribution
+    sample_value_counts = table_df['SampleValue'].value_counts()
+    fig, ax = plt.subplots(figsize=(8, 6))
+    sample_value_counts.plot(kind='bar', ax=ax, title=f"Sample Value Distribution in {table_name}")
+    ax.set_xlabel("Sample Values")
+    ax.set_ylabel("Count")
+    plt.tight_layout()
+    sample_value_path = os.path.join(output_dir, "sample_values.png")
+    plt.savefig(sample_value_path)
+    plt.close()
+
     # Data types in the table
     data_type_counts = table_df['DataType'].value_counts()
     fig, ax = plt.subplots(figsize=(8, 8))
@@ -57,7 +68,7 @@ def create_visualizations_for_table(df, table_name):
     plt.savefig(data_type_path)
     plt.close()
     
-    return column_path, data_type_path
+    return column_path, sample_value_path, data_type_path
 
 @app.route('/')
 def index():
@@ -85,7 +96,7 @@ def table_view(table_name):
         return f"<h1>Error: Table {table_name} not found in data.</h1>"
 
     # Generate visualizations for the table
-    column_vis_path, type_vis_path = create_visualizations_for_table(df, table_name)
+    column_vis_path, sample_value_vis_path, type_vis_path = create_visualizations_for_table(df, table_name)
 
     # Filter table-specific data for display
     table_data = df[df['TableName'] == table_name].to_dict(orient="records")
@@ -97,6 +108,7 @@ def table_view(table_name):
     return render_template("table.html", 
                            table_name=table_name, 
                            column_vis_path=column_vis_path, 
+                           sample_value_vis_path=sample_value_vis_path, 
                            type_vis_path=type_vis_path, 
                            table_data=table_data)
 
