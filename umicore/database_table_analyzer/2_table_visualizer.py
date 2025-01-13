@@ -61,8 +61,12 @@ def create_visualizations_for_table(df, table_name):
 
 @app.route('/')
 def index():
+    return render_template("index.html")
+
+@app.route('/tables')
+def tables():
     # Load data
-    file_path = './files/pi_tables_read.rpt'
+    file_path = './files/source.tsv'
     if not os.path.exists(file_path):
         return f"<h1>Error: File not found at {file_path}</h1>"
 
@@ -70,7 +74,7 @@ def index():
     print(f"Data loaded with {len(df)} valid entries")
 
     tables = df['TableName'].unique()
-    return render_template("index.html", tables=tables)
+    return render_template("tables.html", tables=tables)
 
 @app.route('/table/<table_name>')
 def table_view(table_name):
@@ -116,6 +120,10 @@ def search():
     results = df[df['ColumnName'].isin(matched_columns)].drop_duplicates(subset=['TableName', 'ColumnName']).to_dict(orient='records')
 
     return render_template("search_results.html", query=query, results=results)
+
+@app.route('/getting-started')
+def getting_started():
+    return render_template("getting_started.html")
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
