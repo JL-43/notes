@@ -25,7 +25,6 @@
         <h2 class="text-2xl font-bold mb-4">Getting Started</h2>
         <p class="mb-4">Follow the instructions below to get started with Table Analyzer:</p>
         <p class="mb-4">Run the extraction script below on your database (T-SQL).</p>
-        <p class="mb-4">Modify your output to be a tsv.</p>
         <h3 class="text-xl font-bold mb-2">Extraction Script</h3>
         <button id="toggleScript" class="bg-blue-500 text-white p-2 rounded mb-4">Show/Hide Script</button>
         <pre id="scriptContent" class="hidden bg-gray-200 p-4 rounded overflow-x-auto">
@@ -114,6 +113,7 @@ DEALLOCATE table_cursor;
 SET NOCOUNT OFF;
             </code>
         </pre>
+        <p class="mb-4">Modify your output to be a tsv.</p>
         <p class="mb-4">After running the extraction script, place the resulting file in the <code>./files/</code> directory with the name <code>source.tsv</code>. This file will be used as the data source for the Table Analyzer web application.</p>
     </main>
 
