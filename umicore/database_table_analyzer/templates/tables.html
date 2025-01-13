@@ -36,13 +36,23 @@
                 <button type="submit" class="bg-blue-500 text-white p-1 rounded">Column Search</button>
             </form>
         </div>
-        <ul id="tableList" class="list-disc pl-5">
-            {% for table in tables %}
+        <h3 class="text-xl font-semibold mb-2">Tables with Data</h3>
+        <ul id="tableList" class="list-disc pl-5 mb-4">
+            {% for table in tables_with_data %}
             <li class="table-item">
                 <a href="{{ url_for('table_view', table_name=table) }}" 
                    class="text-blue-500 hover:underline">
                    {{ table }}
                 </a>
+            </li>
+            {% endfor %}
+        </ul>
+        <h3 class="text-xl font-semibold mb-2">Tables without Data.</h3>
+        <h4 class="text-l font-semibold mb-2">Consider increasing the captured sample data in the extraction script.</h4>
+        <ul id="tableListNoData" class="list-disc pl-5">
+            {% for table in tables_no_data %}
+            <li class="table-item text-gray-500">
+                {{ table }}
             </li>
             {% endfor %}
         </ul>

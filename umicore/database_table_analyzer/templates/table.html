@@ -49,12 +49,12 @@
         <!-- Visualizations -->
         <h3 class="text-xl font-semibold mt-6 mb-2">Visualizations</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <!-- {% if sample_value_vis_path %}
+            {% if sample_value_vis_path %}
             <div class="bg-white shadow rounded-lg p-4">
                 <h4 class="text-lg font-semibold mb-2">Sample Value Distribution</h4>
                 <img src="/{{ sample_value_vis_path }}" alt="Sample Value Visualization" class="w-full h-auto rounded">
             </div>
-            {% endif %} -->
+            {% endif %}
             {% if type_vis_path %}
             <div class="bg-white shadow rounded-lg p-4">
                 <h4 class="text-lg font-semibold mb-2">Data Type Distribution</h4>
@@ -64,6 +64,7 @@
         </div>
 
         <!-- Sample Data Table -->
+        {% if table_data %}
         <h3 class="text-xl font-semibold mb-2">Sample Data</h3>
         <div class="overflow-x-auto bg-white shadow rounded-lg table-container">
             <table class="min-w-full divide-y divide-gray-200 table-auto">
@@ -90,6 +91,9 @@
                 </tbody>
             </table>
         </div>
+        {% else %}
+        <p>No data available for this table.</p>
+        {% endif %}
     </main>
 
     <script>
