@@ -20,15 +20,15 @@ def load_data(file_path):
     sample_value_data = []
 
     # Headers for the two types of data
-    column_info_headers = ["TableName", "ColumnName", "MaxValue", "MinValue", "AvgValue", "CountValue", "DistinctCountValue", "MaxDecimalPoints", "MaxLength", "MinLength"]
-    sample_value_headers = ["TableName", "ColumnName", "SampleValue"]
+    column_info_headers = ["TableName", "ColumnName", "DataType", "MaxValue", "MinValue", "AvgValue", "CountValue", "DistinctCountValue", "MaxDecimalPoints", "MaxLength", "MinLength"]
+    sample_value_headers = ["TableName", "ColumnName", "DataType", "SampleValue"]
 
     # Parse the lines
     current_section = None
     for line in lines:
-        if line.startswith("TableName\tColumnName\tMaxValue"):
+        if line.startswith("TableName\tColumnName\tDataType\tMaxValue"):
             current_section = "column_info"
-        elif line.startswith("TableName\tColumnName\tSampleValue"):
+        elif line.startswith("TableName\tColumnName\tDataType\tSampleValue"):
             current_section = "sample_value"
         elif current_section == "column_info":
             column_info_data.append(line.split('\t'))
@@ -134,8 +134,9 @@ def table_view(table_name):
 
     # Filter table-specific data for display
     table_data = column_info_df[column_info_df['TableName'] == table_name]
+    sample_data = sample_value_df[sample_value_df['TableName'] == table_name]
 
-    if table_data.empty or table_data.iloc[:, 2:].apply(lambda x: x.isnull() | (x == 'NULL') | (x == '0') | (x == 0)).all().all():
+    if table_data.empty or table_data.iloc[:, 3:].apply(lambda x: x.isnull() | (x == 'NULL') | (x == '0') | (x == 0)).all().all():
         print(f"Debug: No data found for table {table_name}.")
         return redirect(url_for('tables'))
 
@@ -143,6 +144,7 @@ def table_view(table_name):
     column_vis_path, sample_value_vis_path, type_vis_path = create_visualizations_for_table(column_info_df, sample_value_df, table_name)
 
     table_data = table_data.to_dict(orient="records")
+    sample_data = sample_data.to_dict(orient="records")
 
     print(f"Debug: Data found for table {table_name}: {table_data}")
 
@@ -151,7 +153,8 @@ def table_view(table_name):
                            column_vis_path=column_vis_path, 
                            sample_value_vis_path=sample_value_vis_path, 
                            type_vis_path=type_vis_path, 
-                           table_data=table_data)
+                           table_data=table_data,
+                           sample_data=sample_data)
 
 @app.route('/search')
 def search():
