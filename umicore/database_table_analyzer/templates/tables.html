@@ -23,6 +23,12 @@
 
     <main class="pt-20 container mx-auto p-4">
         <h2 class="text-2xl font-bold mb-4">List of Tables</h2>
+        {% if error %}
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+            <strong class="font-bold">Error:</strong>
+            <span class="block sm:inline">{{ error }}</span>
+        </div>
+        {% else %}
         <div class="flex mb-4">
             <input type="text" id="tableSearch" placeholder="Filter tables..." class="border p-1 rounded mr-2 text-gray-800">
             <form action="/search" method="get" class="flex">
@@ -40,6 +46,7 @@
             </li>
             {% endfor %}
         </ul>
+        {% endif %}
     </main>
 
     <script>

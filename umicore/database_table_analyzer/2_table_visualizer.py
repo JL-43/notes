@@ -7,9 +7,11 @@ from fuzzywuzzy import process
 
 app = Flask(__name__)
 
+# Define the file path
+FILE_PATH = './files/source.tsv'
+
 # Load and clean data
 def load_data(file_path):
-
     with open(file_path, 'r') as file:
         lines = file.readlines()
     lines = [line.strip() for line in lines if line.strip()]
@@ -27,8 +29,6 @@ def load_data(file_path):
 
     valid_entries = df[df['TableName'].apply(is_valid_table_name)]
     return valid_entries
-
-
 
 # Save visualizations for a specific table
 def create_visualizations_for_table(df, table_name):
@@ -66,11 +66,11 @@ def index():
 @app.route('/tables')
 def tables():
     # Load data
-    file_path = './files/source.tsv'
-    if not os.path.exists(file_path):
-        return f"<h1>Error: File not found at {file_path}</h1>"
+    if not os.path.exists(FILE_PATH):
+        error_message = "File not found at ./files/source.tsv. Please ensure the file is placed in the correct directory."
+        return render_template("tables.html", error=error_message)
 
-    df = load_data(file_path).drop_duplicates()
+    df = load_data(FILE_PATH).drop_duplicates()
     print(f"Data loaded with {len(df)} valid entries")
 
     tables = df['TableName'].unique()
@@ -79,8 +79,7 @@ def tables():
 @app.route('/table/<table_name>')
 def table_view(table_name):
     # Load data
-    file_path = './files/pi_tables_read.rpt'
-    df = load_data(file_path).drop_duplicates()
+    df = load_data(FILE_PATH).drop_duplicates()
 
     if table_name not in df['TableName'].unique():
         return f"<h1>Error: Table {table_name} not found in data.</h1>"
@@ -108,8 +107,7 @@ def search():
         return "<h1>Error: No search query provided.</h1>"
 
     # Load data
-    file_path = './files/pi_tables_read.rpt'
-    df = load_data(file_path).drop_duplicates()
+    df = load_data(FILE_PATH).drop_duplicates()
 
     # Perform fuzzy search on ColumnName
     column_names = df['ColumnName'].unique()
