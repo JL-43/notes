@@ -28,6 +28,7 @@ code "\\wsl.localhost\Ubuntu\home\jl43\Documents"
 
 exit
 ```
+
 2. Add the Script to Windows Startup
    - Press Win + R, type shell:startup, and press Enter.
    - Copy the startup_personal_docs.bat file into the opened folder. This will ensure it runs every time you log in.
@@ -37,7 +38,8 @@ exit
      - Ensure the virtual environment is in the correct directory and accessible via WSL.
      - Modify the batch script above if your venv activation path differs.
 4. Depends on: ![alt text](index_asset1.png) ![alt text](index_asset2.png)
-- launch.json
+- .vscode/launch.json
+  (create if not exists)
    ```
    {
    "version": "0.2.0",
@@ -52,7 +54,8 @@ exit
    ]
    }
    ```
-- tasks.json
+- .vscode/tasks.json
+  (create if not exists)
    ```
    {
    "version": "2.0.0",
