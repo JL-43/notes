@@ -1,0 +1,1 @@
+Major = 2212221, Minor = 2122122, Harmonic Minor = 2122131
