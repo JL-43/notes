@@ -1,5 +1,31 @@
 # Database Table Analyzer
 
+## North Star
+
+Focus is on looking nice and digestability of insights
+
+Keep it simple
+
+"nice to present"
+
+16:57:09
+Data analysis app. Import a csv, tsv, delta, etc (represents one table)
+
+Give basic analysis for data integration
+
+Count
+Distinct values
+Distinct vount
+IsUnique
+Most common values
+IsGuidPattern
+
+*Most possible data type 3 candidates (not a priority)
+
+If possibly int or double: minimum and maximum. Max decimal place
+
+If possibly string: max char size
+
 ## TODO:
 
 i have the following files

@@ -22,14 +22,17 @@
   ```
 
 ## Usage
-### Data Extraction:
-1. Run `1_read_tables.sql` in your SQL Server environment
-2. Save the output to `source.tsv`
+1. Data Extraction:
+   - Run `1_read_tables.sql` in your SQL Server environment
+   - Save the output to `source.tsv`
 
-### Launch the application:
-1. Access the web interface:
-2. Open a browser and navigate to `http://localhost:5000`
-3. Start exploring tables through the interface
+2. Launch the application: 
+
+    ```python 2_table_visualizer.py```
+
+3. Access the web interface:
+   - Open a browser and navigate to `http://localhost:5000`
+   - Start exploring tables through the interface
 
 ## Development History
 The project has evolved from its initial version to now include:
