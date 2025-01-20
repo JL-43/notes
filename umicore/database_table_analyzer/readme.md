@@ -23,8 +23,8 @@
 
 ## Usage
 ### Data Extraction:
-1. Run `new_1_read_tables.sql` in your SQL Server environment
-2. Save the output to `new_source.tsv`
+1. Run `1_read_tables.sql` in your SQL Server environment
+2. Save the output to `source.tsv`
 
 ### Launch the application:
 1. Access the web interface:
