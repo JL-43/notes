@@ -18,3 +18,15 @@
     end="<!--intro-end-->"
 %}
 ---
+
+## Understanding Isolation in ACID Transactions
+[*./content/isolation_acid.md*](./content/isolation_acid.md)
+
+---
+**Description:**
+{%
+    include-markdown "./content/isolation_acid.md"
+    start="<!--intro-start-->"
+    end="<!--intro-end-->"
+%}
+---

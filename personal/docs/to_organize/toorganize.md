@@ -7,6 +7,7 @@
 ![alt text](image-3.png)
 
 ## Links
+- [How to make the BEST Japanese Hamburg Steak](https://www.youtube.com/watch?v=5RVSwVAQIvM)
 - [X: Smoked Butter!](https://x.com/houseofthemuse_/status/1806751874869321927?s=46&t=MdcvRemepk9iORSI7gN0Pw)
 - [X: The besto pesto chicken bake I've seen in a hot minute.](https://x.com/southdallasfood/status/1806077260715466778?s=46&t=MdcvRemepk9iORSI7gN0Pw)
 - [Crafting Interpreters](https://craftinginterpreters.com/introduction.html?im-WMpannNK=3688284798460048776)

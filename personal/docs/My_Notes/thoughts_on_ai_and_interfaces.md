@@ -1,3 +1,5 @@
+# Thoughts on AI and Interfaces
+
 Will it learn eventually to interact effectively with the world?
 
 Eyes, nose, skin, limbs
