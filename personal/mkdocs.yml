@@ -7,22 +7,28 @@ theme:
     toggle:
       icon: material/toggle-switch
       name: Switch to dark mode
-    primary: light blue
-    accent: orange
+    primary: indigo
+    accent: cyan
 
     # dark mode
   - scheme: slate
     toggle:
       icon: material/toggle-switch-off-outline
       name: Switch to light mode
-    primary: light blue
-    accent: orange
+    primary: indigo
+    accent: cyan
 
   features:
     - content.code.copy
+    - search.suggest
+    - navigation.instant
+    - navigation.instant.progress
+
   highlight_theme: monokai
 plugins:
   - include-markdown
+  - search
+  - tags
 extra_css:
   - stylesheets/overrides.css
 markdown_extensions:

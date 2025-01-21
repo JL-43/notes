@@ -1,9 +1,20 @@
+---
+tags:
+  - SQL
+  - Consulting
+  - T-SQL
+  - SQL Server
+---
+
 # Pivot - Unpivot
 
 ## Description
-
-This example demonstrates how to pivot (and optionally unpivot) data using CTEs. It transforms a "tall" table of monthly sales into a "wide" format, with separate columns for each month. You can adapt this snippet for any set of pivot columns or different grouping levels by modifying the WITH clauses and the pivot logic.
-
+<!--intro-start-->
+This example demonstrates how to pivot (and optionally unpivot) data using CTEs. 
+It transforms a "tall" table of monthly sales into a "wide" format, with separate columns for each month. 
+You can adapt this snippet for any set of pivot columns or different grouping levels by 
+modifying the WITH clauses and the pivot logic.
+<!--intro-end-->
 ### Main Code
 
 ```sql
