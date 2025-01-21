@@ -42,10 +42,16 @@ jobs:
         run: |
           mkdocs build --config-file personal/mkdocs.yml --site-dir personal/site
 
-      - name: Upload artifact
+      - name: Debug MkDocs Output
+        run: |
+          ls -la personal/site
+
+      - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: personal/site
+          name: github-pages
+          retention-days: 1
 
   # Deployment job
   deploy:
