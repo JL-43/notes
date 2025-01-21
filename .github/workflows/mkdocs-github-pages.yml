@@ -35,14 +35,12 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          cd personal
           pip install -r requirements.txt
           pip install mkdocs-material
 
       - name: Build MkDocs Site
         run: |
-          cd personal
-          mkdocs build
+          mkdocs build --config-file personal/mkdocs.yml --site-dir personal/site
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
