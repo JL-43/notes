@@ -4,22 +4,6 @@
 
 This example demonstrates how to pivot (and optionally unpivot) data using CTEs. It transforms a "tall" table of monthly sales into a "wide" format, with separate columns for each month. You can adapt this snippet for any set of pivot columns or different grouping levels by modifying the WITH clauses and the pivot logic.
 
-### FAQ
-
-- **Why define p and u alias but not use?**  
-  In T-SQL (and some other SQL dialects), when you use the pivot or unpivot operator, the syntax requires you to provide an alias (in your examples, p for the pivot and u for the unpivot). Even if you don't explicitly reference that alias in subsequent code (for example, you're not writing p.mycolumn in the select list), the alias is still mandatory.
-
-- **Will unpivot return the data before an aggregation?**  
-  No. When you pivot data, you perform an aggregation (e.g., a sum) on each pivoted column. Unpivoting doesn't "undo" that aggregation; it merely transforms those aggregated columns back into rows. In other words:
-  - Pivot aggregates the data (e.g., sums sales) for each category or month and places those sums into separate columns.
-  - Unpivot converts those columns back into rows but keeps the aggregated values. It does not revert to the original row-level data prior to aggregation.
-  - Hence, after unpivoting, each row in the new table still represents a summed amount--it is simply restructured into a row form rather than separate columns.
-
-- **Do we always have to do aggregations on pivot?**  
-  In T-SQL and many other SQL dialects that support pivot, the syntax requires an aggregation function--commonly sum, count, avg, etc.--when using the pivot clause. There isn't a "no-aggregation" variant in T-SQL's built-in pivot operator, so if you don't need an aggregation, you usually have to simulate pivoting via other means (e.g., conditional case expressions).
-
-  That said, sum is by far the most common operation when we pivot, because most business scenarios involve measuring totals. But you can replace sum with other aggregate functions, such as count, avg, min, or max, depending on your requirements.
-
 ### Main Code
 
 ```sql
@@ -95,6 +79,22 @@ select
     *
 from pivoted_table;
 ```
+
+### FAQ
+
+- **Why define p and u alias but not use?**  
+  In T-SQL (and some other SQL dialects), when you use the pivot or unpivot operator, the syntax requires you to provide an alias (in your examples, p for the pivot and u for the unpivot). Even if you don't explicitly reference that alias in subsequent code (for example, you're not writing p.mycolumn in the select list), the alias is still mandatory.
+
+- **Will unpivot return the data before an aggregation?**  
+  No. When you pivot data, you perform an aggregation (e.g., a sum) on each pivoted column. Unpivoting doesn't "undo" that aggregation; it merely transforms those aggregated columns back into rows. In other words:
+  - Pivot aggregates the data (e.g., sums sales) for each category or month and places those sums into separate columns.
+  - Unpivot converts those columns back into rows but keeps the aggregated values. It does not revert to the original row-level data prior to aggregation.
+  - Hence, after unpivoting, each row in the new table still represents a summed amount--it is simply restructured into a row form rather than separate columns.
+
+- **Do we always have to do aggregations on pivot?**  
+  In T-SQL and many other SQL dialects that support pivot, the syntax requires an aggregation function--commonly sum, count, avg, etc.--when using the pivot clause. There isn't a "no-aggregation" variant in T-SQL's built-in pivot operator, so if you don't need an aggregation, you usually have to simulate pivoting via other means (e.g., conditional case expressions).
+
+  That said, sum is by far the most common operation when we pivot, because most business scenarios involve measuring totals. But you can replace sum with other aggregate functions, such as count, avg, min, or max, depending on your requirements.
 
 ### Test the logic yourself: 
 [SQL Fiddle](https://sqlfiddle.com/sql-server/online-compiler)
