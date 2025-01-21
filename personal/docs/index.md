@@ -30,16 +30,19 @@ JL
 
 ---
 
-## Set Up
+## Technical
+
+### Set Up This Website
+
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
-### Commands
+#### Commands
 
 * `mkdocs serve` - Start the live-reloading docs server.
 * `mkdocs build` - Build the documentation site.
 * `mkdocs -h` - Print help message and exit.
 
-### Run automatically on WSL Windows
+#### Run automatically on WSL Windows
 
 1. Create `startup_personal_docs.bat`
    
