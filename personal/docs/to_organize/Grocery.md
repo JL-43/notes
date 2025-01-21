@@ -9,3 +9,8 @@
 - [ ] Conditioner
 - [ ] CHIPS lots of CHIPS
 - [ ] Brown Rice
+- [ ] Baking Soda
+- [ ] Vinegar
+- [ ] Nutella
+- [ ] Cheese
+- [ ] Eggs
