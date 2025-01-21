@@ -5,5 +5,4 @@
   - When revisited, easy to pick up again
   - Logic is implemented in SQL Server / T-SQL
   - TODO: Logic for different SQL dialects
-  - TODO: Add
 
