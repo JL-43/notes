@@ -6,3 +6,7 @@
   - Logic is implemented in SQL Server / T-SQL
   - TODO: Logic for different SQL dialects
 
+## pivot - unpivot
+
+[SQL Code](./sql/pivot_unpivot/t_sql_pivot_unpivot.md)
+

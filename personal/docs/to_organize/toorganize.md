@@ -27,9 +27,9 @@
 - [Poor man's LLM](https://www.reddit.com/r/LocalLLaMA/comments/1hpg2e6/budget_aka_poor_man_local_llm/)
 - [Make your own soda (ginger bug)](https://www.youtube.com/shorts/hJxmLto0pZQ)
 - [Fragrances: Getting Started](https://www.reddit.com/r/fragrance/comments/58ugki/how_to_start_complete_beginner/)
-  - YSL La Nuit de L'Homme for evening / dinner wear
-  - Blue de chanel for casual
-  - ![alt text](image-4.png)
+    - YSL La Nuit de L'Homme for evening / dinner wear
+    - Blue de chanel for casual
+    - ![alt text](image-4.png)
 - [How to run LLMs locally in 1 minute](https://x.com/dylan_ebert_/status/1876364896264474750?t=SNTjz9hryv_WxpTpe9JUow&s=19)
 - [Interactive code examples in your site 1](https://github.com/nalgeon/codapi-js/blob/main/docs/html.md)
 - [Interactive code examples in your site 2](https://codapi.org/)
