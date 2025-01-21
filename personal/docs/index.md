@@ -1,6 +1,6 @@
 # JL's Personal
 
-## Greetings Traveller
+## Greetings, Traveller
 
 ---
 

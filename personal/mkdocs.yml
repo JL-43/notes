@@ -1,3 +1,4 @@
+site_dir: site
 site_name: JL's Personal
 theme:
   name: material

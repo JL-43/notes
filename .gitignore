@@ -2,3 +2,6 @@ myenv
 *tmp*
 *env*
 *static/visualizations*
+site/
+*venv
+*site
