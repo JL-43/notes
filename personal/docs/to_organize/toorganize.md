@@ -39,6 +39,8 @@
 - [Mouse: Pulsar X3 Ultralight Weight eSports Mouse Size 2 (Black, White) (PX3R21, PX3R22)](https://ecommerce.datablitz.com.ph/collections/pulsar-x3-ultralight-weight-esports-mouse/products/pulsar-x3-ultralight-weight-esports-mouse-size-2-white-px3r22)
 - [MKDocs](https://github.com/squidfunk/mkdocs-material)
 - [SiYuan is a privacy-first personal knowledge management system](https://github.com/siyuan-note/siyuan)
+- [Databricks: Monitor job costs & performance with system tables](https://docs.databricks.com/en/admin/system-tables/jobs-cost.html)
+- [Announcing: Pokémon Blaze Black 2 and Volt White 2 Redux v2.0.0](https://www.reddit.com/r/PokemonROMhacks/comments/1hha3wp/announcing_pok%C3%A9mon_blaze_black_2_and_volt_white_2/?share_id=PfjS-E7lyFSSkSBI3Vxeq&utm_content=1&utm_medium=android_app&utm_name=androidcss&utm_source=share&utm_term=1)
 
 ## Posts
 
