@@ -40,7 +40,7 @@ jobs:
 
       - name: Build MkDocs Site
         run: |
-          mkdocs build --config-file personal/mkdocs.yml --site-dir personal/site
+          mkdocs build --config-file personal/mkdocs.yml --site-dir site
 
       - name: Debug MkDocs Output
         run: |
