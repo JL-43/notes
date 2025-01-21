@@ -1,0 +1,503 @@
+<!DOCTYPE html><html><head>
+      <title>investigation</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////home/jl43/.vscode-server/extensions/shd101wyy.markdown-preview-enhanced-0.8.15/crossnote/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="tst-incr-load-investigation-16122024">TST INCR LOAD Investigation 16122024 </h1>
+<h2 id="error-message">Error Message </h2>
+<ul>
+<li>Coming from TX notification mail</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Finished executing project 'PMR_DWH' Execution Package 'TST - INCR LOAD'
+Execution failed
+Start Time : 12/16/2024 3:23:06 AM End Time : 12/16/2024 6:27:42 AM on server: azu-ts-0002
+-Execute Execution Package TST - INCR LOAD 'Failed'
+        Error during Data Processing for Table: MDW.DW_F_SICKNESS_CONVERSATIONS at: MDW
+        Invalid column name 'Department_SP'.
+        Invalid column name 'SCD Is Current'.
+       
+        Stored Procedure: [MDW_ETL].[usp_DW_F_SICKNESS_CONVERSATIONS_Clean]
+        Parameters:
+        @version = 165929
+       
+        Line number: 95
+       
+        Details:
+       
+        SQL Server: 'azu-dataanalyticspmr-sql-tst.database.windows.net'
+        SQL Procedure: 'MDW_ETL.usp_DW_F_SICKNESS_CONVERSATIONS_Clean'
+        SQL Line Number: 95
+        SQL Error Number: 207
+       
+        Invalid column name 'Department_SP'. ...
+        Module: .Net SqlClient Data Provider
+        System.Data.SqlClient.SqlException
+           at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+           at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+           at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)
+           at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+           at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task&amp; task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+           at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task&amp; task, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry)
+           at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry)
+           at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+           at TimeXtender.DataManager.StepDataCleansingExecute.DoAbstractStep(StepSetup stepSetup)
+       
+        Error during Data Processing for Table: MDW.DW_F_SICKNESS_CONVERSATIONS at: MDW ...
+        System.Exception
+       
+Execute Business Unit GLOBAL_ODX:Info:Initialized
+Execute DSA:Info:Initialized
+Execute MDW:Info:Initialized
+  -Execute MDW
+Execute Table MDW MDW.DW_D_ASSAY_STATUS:Info:Initialized
+Execute Table MDW MDW.DW_D_BASEL_CD:Info:Initialized
+Execute Table MDW MDW.DW_D_BLOCKING:Info:Initialized
+Execute Table MDW MDW.DW_D_COACH:Info:Initialized
+Execute Table MDW MDW.DW_D_COLLATERAL:Info:Initialized
+Execute Table MDW MDW.DW_D_COMMERCIAL_INDEX:Info:Initialized
+Execute Table MDW MDW.DW_D_COMPONENT:Info:Initialized
+Execute Table MDW MDW.DW_D_CONTACT_PERSON:Info:Initialized
+Execute Table MDW MDW.DW_D_CONTRACT:Info:Initialized
+Execute Table MDW MDW.DW_D_CONVERSION_GR:Info:Initialized
+Execute Table MDW MDW.DW_D_CUSTOMER:Info:Initialized
+Execute Table MDW MDW.DW_D_CUSTOMER_FILE:Info:Initialized
+Execute Table MDW MDW.DW_D_CUSTOMS_CD:Info:Initialized
+Execute Table MDW MDW.DW_D_DATE:Info:Initialized
+Execute Table MDW MDW.DW_D_DAY_REPORT:Info:Initialized
+Execute Table MDW MDW.DW_D_DEPARTMENT:Info:Initialized
+Execute Table MDW MDW.DW_D_DEPARTMENT_old:Info:Initialized
+Execute Table MDW MDW.D_DEPOSIT_COVERAGE_LEVELS:Info:Initialized
+Execute Table MDW MDW.DW_D_DUST_BUTTON:Info:Initialized
+Execute Table MDW MDW.DW_D_ELEMENT:Info:Initialized
+Execute Table MDW MDW.DW_D_ELEMENT_ORDER:Info:Initialized
+Execute Table MDW MDW.DW_D_EMPLOYEE:Info:Initialized
+Execute Table MDW MDW.DW_D_EURAL_CD:Info:Initialized
+Execute Table MDW MDW.DW_D_ENVIRONMENT_TARGETS:Info:Initialized
+Execute Table MDW MDW.DW_D_GR_LOT:Info:Initialized
+Execute Table MDW MDW.DW_D_GROUP_LIF:Info:Initialized
+Execute Table MDW MDW.DW_D_HEDGING_COVERAGE_LEVEL:Info:Initialized
+Execute Table MDW MDW.DW_F_INCIDENT_REPORT:Info:Initialized
+Execute Table MDW MDW.DW_D_INTERNAL:Info:Initialized
+Execute Table MDW MDW.DW_D_INVENTORY_CD:Info:Initialized
+Execute Table MDW MDW.DW_D_INVTR_ORDER:Info:Initialized
+Execute Table MDW MDW.DW_D_KPI_NAMES:Info:Initialized
+Execute Table MDW MDW.DW_D_KS_RATE:Info:Initialized
+Execute Table MDW MDW.DW_D_L_ASSAYSTATUS_ORDER:Info:Initialized
+Execute Table MDW MDW.DW_D_L_BRFDESC:Info:Initialized
+Execute Table MDW MDW.DW_D_L_HPDESC:Info:Initialized
+Execute Table MDW MDW.DW_D_LOT:Info:Initialized
+Execute Table MDW MDW.DW_D_LOT_CATEGORY:Info:Initialized
+Execute Table MDW MDW.DW_D_MANAGERS_LG:Info:Initialized
+Execute Table MDW MDW.DW_D_MATERIAL:Info:Initialized
+Execute Table MDW MDW.DW_D_MODEL:Info:Initialized
+Execute Table MDW MDW.DW_D_MODEL_M_UNIT:Info:Initialized
+Execute Table MDW MDW.DW_D_MOVEMENT_REASON:Info:Initialized
+Execute Table MDW MDW.DW_D_MOVEMENT_UNIT:Info:Initialized
+Execute Table MDW MDW.DW_D_OFFER:Info:Initialized
+Execute Table MDW MDW.DW_D_OPEXC_TARGETS:Info:Initialized
+Execute Table MDW MDW.DW_D_PEOPLE_TARGETS:Info:Initialized
+Execute Table MDW MDW.DW_D_PMS_TARGET_SAFETY:Info:Initialized
+Execute Table MDW MDW.DW_D_POLARPLOT:Info:Initialized
+Execute Table MDW MDW.DW_D_PRODUCT:Info:Initialized
+Execute Table MDW MDW.DW_D_QUOTE:Info:Initialized
+Execute Table MDW MDW.DW_D_REPORTING_PERIOD:Info:Initialized
+Execute Table MDW MDW.DW_D_RLS_DEPARTMENT:Info:Initialized
+Execute Table MDW MDW.DW_D_SAC_BATCH:Info:Initialized
+Execute Table MDW MDW.DW_D_SAMPLE_STEP_LEAD_TIME:Info:Initialized
+Execute Table MDW MDW.DW_D_SAMPLING_STEP:Info:Initialized
+Execute Table MDW MDW.DW_D_SAMPLING_TEAM:Info:Initialized
+Execute Table MDW MDW.DW_D_SENSOR:Info:Initialized
+Execute Table MDW MDW.DW_D_SIMULATION:Info:Initialized
+Execute Table MDW MDW.DW_D_TIME:Info:Initialized
+Execute Table MDW MDW.DW_D_UNIT_OF_MEASURE:Info:Initialized
+Execute Table MDW MDW.DW_D_XRF_ANALYSIS:Info:Initialized
+Execute Table MDW MDW.DW_D_XRF_SITE:Info:Initialized
+Execute Table MDW MDW.DW_F_5S:Info:Initialized
+Execute Table MDW MDW.DW_F_ACCIDENT:Info:Initialized
+    -Execute Table MDW MDW.DW_F_ACCIDENT
+Execute MDW MDW.DW_F_ACCIDENT Direct Read Transfer:Info:Successful
+Execute MDW MDW.DW_F_ACCIDENT Data Cleansing Rules:Error:Failed
+      -Execute MDW MDW.DW_F_ACCIDENT Data Cleansing Rules 'Failed'
+         Error during Data Processing for Table: MDW.DW_F_ACCIDENT at: MDW
+         Invalid column name 'Department_SP'.
+        
+         Stored Procedure: [MDW_ETL].[usp_DW_F_ACCIDENT_Clean]
+         Parameters:
+         @version = 165929
+        
+         Line number: 82
+        
+         Details:
+        
+         SQL Server: 'azu-dataanalyticspmr-sql-tst.database.windows.net'
+         SQL Procedure: 'MDW_ETL.usp_DW_F_ACCIDENT_Clean'
+         SQL Line Number: 82
+         SQL Error Number: 207
+        
+         Invalid column name 'Department_SP'.
+         Module: .Net SqlClient Data Provider
+         System.Data.SqlClient.SqlException
+            at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+            at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+            at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)
+            at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+            at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task&amp; task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+            at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task&amp; task, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry)
+            at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry)
+            at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+            at TimeXtender.DataManager.StepDataCleansingExecute.DoAbstractStep(StepSetup stepSetup)
+        
+         Error during Data Processing for Table: MDW.DW_F_ACCIDENT at: MDW ...
+         System.Exception
+        
+
+No child steps
+Execute Table MDW MDW.DW_F_ARRIVALS_FORECAST:Info:Initialized
+Execute Table MDW MDW.DW_F_ARRIVALS_VWGS:Info:Initialized
+Execute Table MDW MDW.DW_F_AUDIT_5S:Info:Initialized
+Execute Table MDW MDW.DW_F_BEGINSTOCK:Info:Initialized
+Execute Table MDW MDW.DW_F_BPS:Info:Initialized
+Execute Table MDW MDW.DW_F_BW_DEVICES:Info:Initialized
+Execute Table MDW MDW.DW_F_BW_INTERVENTIONS:Info:Initialized
+Execute Table MDW MDW.DW_F_BW_MEASURES:Info:Initialized
+Execute Table MDW MDW. DW_F_CBE:Info:Initialized
+Execute Table MDW MDW.DW_F_CONTRACT_TERM:Info:Initialized
+Execute Table MDW MDW.DW_F_CUST_COMPLAINT:Info:Initialized
+Execute Table MDW MDW.DW_F_CUSTOMER_CREDIT_EXPOSURE:Info:Initialized
+Execute Table MDW MDW.DW_F_CUSTOMER_CREDIT_LINE:Info:Initialized
+Execute Table MDW MDW.DW_F_CUST_SERVICE_REPORT:Info:Initialized
+Execute Table MDW MDW.DW_F_DPRTMNT_RLS:Info:Initialized
+Execute Table MDW MDW.DW_F_DUST_BUTTON_BOX:Info:Initialized
+Execute Table MDW MDW.DW_F_EMISSIONS_ANOMALY_HOURLY:Info:Initialized
+Execute Table MDW MDW.DW_F_EMISSIONS_DAILY_CONCENTRATION:Info:Initialized
+Execute Table MDW MDW.DW_F_EMISSIONS_DEWEATHERED:Info:Initialized
+Execute Table MDW MDW.DW_F_EMISSIONS_XRF_CLUSTERING:Info:Initialized
+Execute Table MDW MDW.DW_F_EMISSIONS_XRF_CONCENTRATION:Info:Initialized
+Execute Table MDW MDW.DW_F_EMISSIONS_XRF_CORRELATION:Info:Initialized
+Execute Table MDW MDW.DW_F_EMISSIONS_XRF_DEWEATHERED:Info:Initialized
+Execute Table MDW MDW.DW_F_EMISSIONS_XRF_WEATHER_PROCESS:Info:Initialized
+Execute Table MDW MDW.DW_F_EMR_OCCUPANCY_RATE:Info:Initialized
+Execute Table MDW MDW.DW_F_EMR_PRODUCTION_EVENT:Info:Initialized
+Execute Table MDW MDW.DW_F_FIXATION_LOT:Info:Initialized
+Execute Table MDW MDW.DW_F_FOLLOWUP_TASK:Info:Initialized
+Execute Table MDW MDW.DW_F_FOLLOW_UP_TASK_MONTHLY:Info:Initialized
+Execute Table MDW MDW.DW_F_GOAT:Info:Initialized
+Execute Table MDW MDW.DW_F_HAZOP:Info:Initialized
+Execute Table MDW MDW.DW_F_H_WeeklyKPISnapshot:Info:Initialized
+Execute Table MDW MDW.DW_F_INCIDENT:Info:Initialized
+Execute Table MDW MDW.DW_F_LOT_ANALYSIS_ELEMENT:Info:Initialized
+Execute Table MDW MDW.DW_F_LOT_ELEMENT_STATUS:Info:Initialized
+Execute Table MDW MDW.DW_F_MASS_BALANCE:Info:Initialized
+Execute Table MDW MDW.DW_F_MELTING_FURNACE_BATCH:Info:Initialized
+Execute Table MDW MDW.DW_F_MELTING_FURNACE_BED:Info:Initialized
+Execute Table MDW MDW.DW_F_MELTING_FURNACE_SUPPLY:Info:Initialized
+Execute Table MDW MDW.DW_F_MOC_ITEM:Info:Initialized
+Execute Table MDW MDW.DW_F_MOVEMENT_SHIP:Info:Initialized
+Execute Table MDW MDW.DW_F_NON_CONFORMITY:Info:Initialized
+Execute Table MDW MDW.DW_F_NOTIFICATIONCENTER:Info:Initialized
+    -Execute Table MDW MDW.DW_F_NOTIFICATIONCENTER
+Execute MDW MDW.DW_F_NOTIFICATIONCENTER Direct Read Transfer:Info:Successful
+Execute MDW MDW.DW_F_NOTIFICATIONCENTER Data Cleansing Rules:Error:Failed
+      -Execute MDW MDW.DW_F_NOTIFICATIONCENTER Data Cleansing Rules 'Failed'
+         Error during Data Processing for Table: MDW.DW_F_NOTIFICATIONCENTER at: MDW
+         Invalid column name 'Department_SP'.
+        
+         Stored Procedure: [MDW_ETL].[usp_DW_F_NOTIFICATIONCENTER_Clean]
+         Parameters:
+         @version = 165929
+        
+         Line number: 68
+        
+         Details:
+        
+         SQL Server: 'azu-dataanalyticspmr-sql-tst.database.windows.net'
+         SQL Procedure: 'MDW_ETL.usp_DW_F_NOTIFICATIONCENTER_Clean'
+         SQL Line Number: 68
+         SQL Error Number: 207
+        
+         Invalid column name 'Department_SP'.
+         Module: .Net SqlClient Data Provider
+         System.Data.SqlClient.SqlException
+            at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+            at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+            at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)
+            at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+            at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task&amp; task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+            at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task&amp; task, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry)
+            at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry)
+            at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+            at TimeXtender.DataManager.StepDataCleansingExecute.DoAbstractStep(StepSetup stepSetup)
+        
+         Error during Data Processing for Table: MDW.DW_F_NOTIFICATIONCENTER at: MDW ...
+         System.Exception
+        
+
+No child steps
+Execute Table MDW MDW.DW_F_OBSERVATION_CPM:Info:Initialized
+Execute Table MDW MDW.DW_F_PBM_LENDING:Info:Initialized
+Execute Table MDW MDW.DW_F_PBM_USAGE:Info:Initialized
+Execute Table MDW MDW.DW_F_PRODUCTION_ANALYSIS:Info:Initialized
+Execute Table MDW MDW.DW_F_PRODUCTION_ANALYSIS_ELEMENT:Info:Initialized
+Execute Table MDW MDW.DW_F_PRODUCTION_BATCH:Info:Initialized
+Execute Table MDW MDW.DW_F_PRODUCTION_BATCH_STEP:Info:Initialized
+Execute Table MDW MDW.DW_F_PRODUCTION_COLORIMETER:Info:Initialized
+Execute Table MDW MDW.DW_F_PRODUCTION_SHUTDOWN:Info:Initialized
+Execute Table MDW MDW.DW_D_PRODUCTION_RUN:Info:Initialized
+Execute Table MDW MDW.DW_F_QUESTION_TO_LAB:Info:Initialized
+Execute Table MDW MDW.DW_F_REFINER_BATCH:Info:Initialized
+Execute Table MDW MDW.DW_F_REFINER_PROD_STEP:Info:Initialized
+Execute Table MDW MDW.DW_F_ROW_LEVEL_SECURITY:Info:Initialized
+Execute Table MDW MDW.DW_F_SAFETY:Info:Initialized
+Execute Table MDW MDW.DW_F_SAFETY_NOTIFICATION:Info:Initialized
+Execute Table MDW MDW.DW_F_SAMPLING_OCCUPANCY:Info:Initialized
+Execute Table MDW MDW.DW_F_SAMPLING_PROCEDURE:Info:Initialized
+Execute Table MDW MDW.DW_F_SICKNESS_CHECK:Info:Initialized
+Execute Table MDW MDW.DW_F_SICKNESS_CONVERSATIONS:Info:Initialized
+    -Execute Table MDW MDW.DW_F_SICKNESS_CONVERSATIONS
+Execute MDW MDW.DW_F_SICKNESS_CONVERSATIONS Direct Read Transfer:Info:Successful
+Execute MDW MDW.DW_F_SICKNESS_CONVERSATIONS Data Cleansing Rules:Error:Failed
+      -Execute MDW MDW.DW_F_SICKNESS_CONVERSATIONS Data Cleansing Rules 'Failed'
+         Error during Data Processing for Table: MDW.DW_F_SICKNESS_CONVERSATIONS at: MDW
+         Invalid column name 'Department_SP'.
+         Invalid column name 'SCD Is Current'.
+        
+         Stored Procedure: [MDW_ETL].[usp_DW_F_SICKNESS_CONVERSATIONS_Clean]
+         Parameters:
+         @version = 165929
+        
+         Line number: 95
+        
+         Details:
+        
+         SQL Server: 'azu-dataanalyticspmr-sql-tst.database.windows.net'
+         SQL Procedure: 'MDW_ETL.usp_DW_F_SICKNESS_CONVERSATIONS_Clean'
+         SQL Line Number: 95
+         SQL Error Number: 207
+        
+         Invalid column name 'Department_SP'. ...
+         Module: .Net SqlClient Data Provider
+         System.Data.SqlClient.SqlException
+            at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+            at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+            at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)
+            at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+            at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task&amp; task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+            at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task&amp; task, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry)
+            at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean&amp; usedCache, Boolean asyncWrite, Boolean inRetry)
+            at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+            at TimeXtender.DataManager.StepDataCleansingExecute.DoAbstractStep(StepSetup stepSetup)
+        
+         Error during Data Processing for Table: MDW.DW_F_SICKNESS_CONVERSATIONS at: MDW ...
+         System.Exception
+        
+
+No child steps
+Execute Table MDW MDW.DW_F_SICKNESS_NOTIFICATION:Info:Initialized
+Execute Table MDW MDW.DW_F_SIGNED_CONTRACT:Info:Initialized
+Execute Table MDW MDW.DW_F_SMELTER_CHARGE:Info:Initialized
+Execute Table MDW MDW.DW_F_STOCK_ACTUALS:Info:Initialized
+Execute Table MDW MDW.DW_F_STOCK_FORECAST:Info:Initialized
+Execute Table MDW MDW.DW_F_STOCK_WIP:Info:Initialized
+Execute Table MDW MDW.DW_F_TAG_ACTIONS:Info:Initialized
+Execute Table MDW MDW.DW_F_TARIFF_GR:Info:Initialized
+Execute Table MDW MDW.DW_F_TARIFF_TP:Info:Initialized
+Execute Table MDW MDW.DW_F_TASK_MENGER:Info:Initialized
+Execute Table MDW MDW.DW_F_UNIT_OF_MEASURE:Info:Initialized
+Execute Table MDW MDW.DW_F_TASK_STEP_MENGER:Info:Initialized
+Execute Table MDW MDW.DW_F_VISIT_REPORT:Info:Initialized
+Execute Table MDW MDW.DW_F_WeeklyKPISnapshot:Info:Initialized
+Execute Table MDW MDW.DW_F_WOB_SP:Info:Initialized
+Execute Table MDW MDW.DW_F_ZMC_LOT_ANALYSIS:Info:Initialized
+Execute Table MDW MDW.DW_F_HWT_LIFTING_EQUIPMENT:Info:Initialized
+Execute Table MDW MDW_ETL.SYS_DUMMY_EXCEPTIONS:Info:Initialized
+Execute Table MDW MDW_PMR.D_ACTIVITY_TYPES:Info:Initialized
+Execute Table MDW MDW_PMR.D_BUSINESS_UNITS:Info:Initialized
+Execute Table MDW MDW_PMR.D_CALENDAR:Info:Initialized
+Execute Table MDW MDW_PMR.D_COMPANIES:Info:Initialized
+Execute Table MDW MDW_PMR.D_EQUIPMENTS:Info:Initialized
+Execute Table MDW MDW_PMR.D_FUNCTION_LOCATIONS:Info:Initialized
+Execute Table MDW MDW_PMR.D_MANAGERS:Info:Initialized
+Execute Table MDW MDW_PMR.D_PLANNING_GROUPS:Info:Initialized
+Execute Table MDW MDW_PMR.D_USERS:Info:Initialized
+Execute Table MDW MDW_PMR.D_WORKCENTERS:Info:Initialized
+Execute Table MDW MDW_PMR.F_FACT:Info:Initialized
+Execute Table MDW MDW.F_MonthlyKPISnapshot:Info:Initialized
+Execute Table MDW MDW.F_H_MonthlyKPISnapshot:Info:Initialized
+Execute Table MDW MDW.DW_D_FUNCTIE_OBSERVATOR:Info:Initialized
+Execute Table MDW MDW.DW_D_EQUIPMENT:Info:Initialized
+Execute Table MDW MDW.D_EQUIPMENTEVENTTYPE:Info:Initialized
+Execute Table MDW MDW.DW_F_EQUIPMENTEVENT:Info:Initialized
+Execute Table MDW MDW.DW_F_EQUIPMENTSTATETARGET:Info:Initialized
+Execute Table MDW MDW.D_EQUIPMENTEVENT_LOT_WGHT_V:Info:Initialized
+Execute Table MDW MDW.DW_D_EQUIPMENTSTATE:Info:Initialized
+Execute Table MDW MDW.DW_D_LR_WEEK_KPI:Info:Initialized
+Execute Table MDW MDW.DW_D_LR_NBR_OF_DAYS:Info:Initialized
+Execute Table MDW MDW.F_SLKLT_ANALYSEBOOK:Info:Initialized
+Execute Table MDW MDW.DW_D_LR_MAAND_KPI:Info:Initialized
+Execute Table MDW MDW.DW_F_SLKLT_STOCK:Info:Initialized
+Execute Table MDW MDW.DW_D_LR_DUURTIJD_POMPINGEN:Info:Initialized
+Execute Table MDW MDW.DW_D_SAFETY_TARGETS:Info:Initialized
+Execute Table MDW MDW.DW_F_SAFETY_TALKS:Info:Initialized
+Execute Table MDW MDW.SafteyTalkIndex:Info:Initialized
+Execute Table MDW MDW.DW_AG_EQUIPMENTEVET:Info:Initialized
+Execute Table MDW MDW.VW_EXECPCKGLOGDETAILS:Info:Initialized
+Execute Table MDW MDW.VW_EXECPCKGLOG:Info:Initialized
+Execute Table MDW MDW.DW_F_CUSTOMER_COMPLAINTS:Info:Initialized
+Execute Table MDW MDW.DW_F_KLANTEN_KLACHTEN:Info:Initialized
+Execute Table MDW MDW.DW_F_NON_CONFORMITEITEN:Info:Initialized
+Execute Table MDW MDW.DW_D_KPI_NAMESS:Info:Initialized
+Execute Table MDW MDW.DW_F_Antwoorden:Info:Initialized
+Execute Table MDW MDW.DW_D_Parent:Info:Initialized
+Execute Table MDW MDW.DW_F_Taken:Info:Initialized
+Execute Table MDW MDW.DW_D_Vragen:Info:Initialized
+Execute Table MDW MDW.DW_D_Department_Hoboken:Info:Initialized
+Execute Table MDW MDW.F_SAFETY_NOTIFICATION:Info:Initialized
+Execute Table MDW MDW.F_SAFETY_TALKS:Info:Initialized
+Execute Semantic Models:Info:Initialized
+</code></pre><ul>
+<li>Isolate only relevant messages errors</li>
+</ul>
+<h3 id="error-1">Error 1 </h3>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Error during Data Processing for Table: MDW.DW_F_SICKNESS_CONVERSATIONS at: MDW
+Invalid column name 'Department_SP'.
+Invalid column name 'SCD Is Current'.
+
+Stored Procedure: [MDW_ETL].[usp_DW_F_SICKNESS_CONVERSATIONS_Clean]
+Parameters:
+@version = 165929
+
+Line number: 95
+
+Details:
+
+SQL Server: 'azu-dataanalyticspmr-sql-tst.database.windows.net'
+SQL Procedure: 'MDW_ETL.usp_DW_F_SICKNESS_CONVERSATIONS_Clean'
+SQL Line Number: 95
+SQL Error Number: 207
+</code></pre><h3 id="error-2">Error 2 </h3>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Error during Data Processing for Table: MDW.DW_F_ACCIDENT at: MDW
+Invalid column name 'Department_SP'.
+
+Stored Procedure: [MDW_ETL].[usp_DW_F_ACCIDENT_Clean]
+Parameters:
+@version = 165929
+
+Line number: 82
+
+Details:
+
+SQL Server: 'azu-dataanalyticspmr-sql-tst.database.windows.net'
+SQL Procedure: 'MDW_ETL.usp_DW_F_ACCIDENT_Clean'
+SQL Line Number: 82
+SQL Error Number: 207
+</code></pre><h3 id="error-3">Error 3 </h3>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Error during Data Processing for Table: MDW.DW_F_NOTIFICATIONCENTER at: MDW
+Invalid column name 'Department_SP'.
+
+Stored Procedure: [MDW_ETL].[usp_DW_F_NOTIFICATIONCENTER_Clean]
+Parameters:
+@version = 165929
+
+Line number: 68
+
+Details:
+
+SQL Server: 'azu-dataanalyticspmr-sql-tst.database.windows.net'
+SQL Procedure: 'MDW_ETL.usp_DW_F_NOTIFICATIONCENTER_Clean'
+SQL Line Number: 68
+SQL Error Number: 207
+</code></pre><h3 id="error-4">Error 4 </h3>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Error during Data Processing for Table: MDW.DW_F_SICKNESS_CONVERSATIONS at: MDW
+Invalid column name 'Department_SP'.
+Invalid column name 'SCD Is Current'.
+
+Stored Procedure: [MDW_ETL].[usp_DW_F_SICKNESS_CONVERSATIONS_Clean]
+Parameters:
+@version = 165929
+
+Line number: 95
+
+Details:
+
+SQL Server: 'azu-dataanalyticspmr-sql-tst.database.windows.net'
+SQL Procedure: 'MDW_ETL.usp_DW_F_SICKNESS_CONVERSATIONS_Clean'
+SQL Line Number: 95
+SQL Error Number: 207
+</code></pre><h3 id="general-findings-on-errors">General Findings on Errors </h3>
+<ul>
+<li>All related to invalid column names, brought about by the update to department_dim</li>
+<li>All related to “_Clean”
+<ul>
+<li>Whenever we create objects in TX, TX will automatically generate an _Clean file that we can inspect (in TX or even easier in SSMS)</li>
+<li>What it does is TX sets some “rules” for the code that it is related to</li>
+<li>Example: <code>DW_F_SICKNESS_CONVERSATIONS</code> will have a corresponding <code>DW_F_SICKNESS_CONVERSATIONS_Clean</code></li>
+<li>It is like the <code>.yml</code> files that we have in dbt</li>
+<li>We basically need to <em>“refresh”</em> the <em><code>.yml</code></em> equivalent of TX (not actually <code>.yml</code>, just an example)</li>
+</ul>
+</li>
+<li>The tables indicated are expecting the <em>previous schema</em></li>
+<li>We need to refresh them to expect the <em>new schema</em></li>
+<li>First thing to try is to just re-deploy these specific objects to see if it is enough</li>
+</ul>
+<h2 id="fix-attempt-1-redeploy">Fix Attempt #1: Redeploy </h2>
+<ol>
+<li>Search for relevant TX Object (DW_F_SICKNESS_CONVERSATIONS)<br>
+<img src="image.webp" alt="alt text"></li>
+<li>I recommend deploy and execute (to see if the code <em>compiles</em> and <em>runs</em>)<br>
+<img src="image-1.webp" alt="alt text"></li>
+<li>Success<br>
+<img src="image-2.webp" alt="alt text"></li>
+<li>Repeat for all remaining tables
+<ul>
+<li>Make sure that this really is the same case for all</li>
+<li>DW_F_ACCIDENT (Success)</li>
+<li><img src="image-3.webp" alt="alt text"></li>
+<li>DW_F_NOTIFICATIONCENTER (Success)</li>
+<li><img src="image-4.webp" alt="alt text"></li>
+<li>DW_F_SICKNESS_CONVERSATIONS (Success)</li>
+<li><img src="image-5.webp" alt="alt text"></li>
+</ul>
+</li>
+<li>To be <em>extra</em> sure, redeployed their equivalent custom views as well
+<ul>
+<li><img src="image-9.webp" alt="alt text"></li>
+<li><img src="image-8.webp" alt="alt text"></li>
+<li><img src="image-7.webp" alt="alt text"></li>
+<li><img src="image-6.webp" alt="alt text"></li>
+</ul>
+</li>
+</ol>
+<h2 id="check-if-tst—incr-load-now-works">Check if TST - INCR LOAD now works </h2>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

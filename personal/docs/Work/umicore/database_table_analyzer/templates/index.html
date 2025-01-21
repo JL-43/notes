@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Analyzer</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white p-4 fixed w-full top-0 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">Table Analyzer</h1>
+            <nav>
+                <a href="/" class="text-white mr-4">Home</a>
+                <a href="/getting-started" class="text-white mr-4">Getting Started</a>
+                <a href="/tables" class="text-white">Tables List</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pt-20 container mx-auto p-4">
+        <h2 class="text-2xl font-bold mb-4">Welcome to Table Analyzer</h2>
+        <p class="mb-4">This tool helps you analyze database tables and visualize their structure and data types.</p>
+        <p class="mb-4">Use the navigation links above to get started.</p>
+    </main>
+
+    <script>
+        document.getElementById('tableSearch').addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            const tableItems = document.querySelectorAll('.table-item');
+            tableItems.forEach(item => {
+                const tableName = item.textContent.toLowerCase();
+                if (tableName.includes(query)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        document.getElementById('toggleScript').addEventListener('click', function() {
+            const scriptContent = document.getElementById('scriptContent');
+            if (scriptContent.classList.contains('hidden')) {
+                scriptContent.classList.remove('hidden');
+            } else {
+                scriptContent.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

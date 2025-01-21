@@ -12,11 +12,19 @@ If you found this--welcome to my personal page. There is no real purpose to it. 
 
 Here's what you'll probably stumble upon:
 
-Consultant Library: Stuff I've figured out (or still struggle with) as a dude in tech. Expect some SQL, some Python, maybe some low-level programming, and likely the occasional rant about tools I'm wrestling with.
+**Consultant Library:** 
 
-Personal Projects: Things I'm experimenting with--whether it's learning music theory, tinkering with emulators, or trying to make sense of my chaotic hobbies.
+Stuff I've figured out (or still struggle with) as a dude in tech. Expect some SQL, some Python, maybe some low-level programming, and likely the occasional rant about tools I'm wrestling with.
 
-Life and Reflections: Random thoughts on life, inspired by books I've read, conversations I've had, or just a late-night rabbit hole of overthinking.
+**Personal Projects:** 
+
+Things I'm experimenting with--whether it's learning music theory, tinkering with emulators, or trying to make sense of my chaotic hobbies.
+
+**Life and Reflections:** 
+
+Random thoughts on life, inspired by books I've read, conversations I've had, or just a late-night rabbit hole of overthinking.
+
+--
 
 This place isn't really tailored for the public. 
 It's more like a notebook I don't mind leaving open, 
