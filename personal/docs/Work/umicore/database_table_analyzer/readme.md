@@ -1,3 +1,5 @@
+# JL's Database Analyzer
+
 ## Features
 - Database table structure analysis
 - Column information visualization including:
