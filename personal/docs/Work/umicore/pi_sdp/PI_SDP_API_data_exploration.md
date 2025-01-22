@@ -2,22 +2,23 @@
 
 It seems like the only values we really have trouble with are the ones related to `eventframeattribute`.
 
-[Event Frames API](https://azu-as-0066/piwebapi/assetdatabases/F1RDi3nQR9tXEUeItBpeh9IplwhbIFZ1WayEO7dAvzCxOezwSE9CLVBJQUZcSE9C/eventframes)
+[Event Frames API request link sample](https://azu-as-0066/piwebapi/assetdatabases/F1RDi3nQR9tXEUeItBpeh9IplwhbIFZ1WayEO7dAvzCxOezwSE9CLVBJQUZcSE9C/eventframes)
 
 We are looking for:
-- `"eventframesnapshot_attribute_id": "010c96be-0000-0000-8026-000000000000"`
-- `"eventframesnapshot_time": "2024-12-16T09:04:00"` -- ?? we still don't know what time means even from PI SQL
-- `"eventframesnapshot_value": ""` -- OK 008 -- but how to interpret? there are many "values" within -- example: [`Value API`](https://azu-as-0066/piwebapi/streamsets/F1Fmi3nQR9tXEUeItBpeh9Iplwtmi_TNvN7xGdWQANOkcXKASE9CLVBJQUZcSE9CXEVWRU5URlJBTUVTWzI0VSBHRU1JRERFTERFIFZBTiBHRUxFSURCQUFSSEVJRCBET09SIFA0MTBBL0IgPCA0OTBd/value)
-- `"eventframesnapshot_value_guid": "fd54b5be-1d35-4b0d-afd1-10378cbed1ed"`
+
+- `"eventframesnapshot_attribute_id": "010c96be-0000-0000-8026-000000000000"` -- ?
+- `"eventframesnapshot_time": "2024-12-16T09:04:00"` -- ? we still don't know what `time` means even from PI SQL
+- `"eventframesnapshot_value": ""` -- OK 008 -- but how to interpret? there are many "values" within -- example: [`Value API request link sample`](https://azu-as-0066/piwebapi/streamsets/F1Fmi3nQR9tXEUeItBpeh9Iplwtmi_TNvN7xGdWQANOkcXKASE9CLVBJQUZcSE9CXEVWRU5URlJBTUVTWzI0VSBHRU1JRERFTERFIFZBTiBHRUxFSURCQUFSSEVJRCBET09SIFA0MTBBL0IgPCA0OTBd/value)
+- `"eventframesnapshot_value_guid": "fd54b5be-1d35-4b0d-afd1-10378cbed1ed"` - ?
 - `"eventframe_id": "6005f0b9-cfc6-427b-0000-0000010c96be"` -- MAYBE 001
 - `"eventframe_name": "DT3 tijdens batch"` -- OK 002
 - `"eventframe_starttime": "2024-12-16T09:04:00"` -- OK 003
 - `"eventframe_endtime": None` -- OK 004
 - `"eventframe_canbeacknowledged": False` -- OK 005
-- `"eventframe_acknowledgedon": None` -- OK 006
-- `"eventframe_acknowledgedby": None` -- OK 007
+- `"eventframe_acknowledged_on": None` -- OK 006
+- `"eventframe_acknowledged_by": None` -- OK 007
 - `"eventframeattribute_id": "010c96be-0000-0000-8026-000000000000"` -- same as "eventframesnapshot_attribute_id"
-- `"eventframeattribute_name": "reden Sac"`
+- `"eventframeattribute_name": "reden Sac"` -- ?
 
 ## Sample Return Object
 
@@ -82,3 +83,4 @@ We are looking for:
     "SecurityEntries": "https://azu-as-0066/piwebapi/eventframes/F1Fmi3nQR9tXEUeItBpeh9IplwZCzNebLY7xGdYAANOq_eMwSE9CLVBJQUZcSE9CXEVWRU5URlJBTUVTW0FOQUxZU0UgT05HRVJBRkZJTkVFUkQgQkxJU1RFUl0/securityentries"
   }
 }
+```
