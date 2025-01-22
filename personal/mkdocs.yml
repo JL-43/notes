@@ -24,6 +24,9 @@ theme:
     - search.suggest
     - navigation.instant
     - navigation.instant.progress
+    - navigation.path
+    - navigation.prune
+    - toc.integrate
 
   highlight_theme: monokai
 plugins:
