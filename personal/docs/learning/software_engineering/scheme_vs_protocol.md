@@ -71,7 +71,9 @@ Here’s a table summarizing the differences between schemes and protocols:
 
 ## 5. **Why Does It Feel Like Schemes = Protocols?**
 This confusion arises because:
+
 1. **Historical Design**: Early internet services like HTTP and FTP were tightly coupled with their schemes.
+   
 2. **Common Usage**: When developers say "use the `http` scheme," they’re implicitly referring to the HTTP protocol.
 
 However, schemes are more **abstract** than protocols:
