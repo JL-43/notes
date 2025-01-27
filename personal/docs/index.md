@@ -37,6 +37,13 @@ Take care,
 JL
 
 ---
+## To do:
+
+- To Organize - organize (lol)
+- What is the difference between a star schema and a cube? - create
+
+
+---
 
 ## Technical
 
