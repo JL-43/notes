@@ -1,16 +1,11 @@
 # Grocery
-- [ ] Soda
 - [ ] Canned goods
-- [ ] Laundry detergent
 - [ ] UFC and Mang Tomas
 - [ ] Curry Roux
-- [ ] Peeled tomatoes
-- [ ] Beer
 - [ ] Conditioner
-- [ ] CHIPS lots of CHIPS
 - [ ] Brown Rice
-- [ ] Baking Soda
 - [ ] Vinegar
-- [ ] Nutella
 - [ ] Cheese
 - [ ] Eggs
+- [ ] Seasoning
+- [ ] Paper Towel
