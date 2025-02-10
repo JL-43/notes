@@ -1,0 +1,3 @@
+safety docs:
+
+[PMR BI & Advanced Analytics Sharepoint > Documents > General > BI & Advanced Analytics > Projects > BSC_PMS > Safety > 10. Project Management](https://umicore365.sharepoint.com/teams/TWS-002472/Shared%20Documents/Forms/AllItems.aspx?csf=1&web=1&e=FcrTgY&OR=Teams%2DHL&CT=1738678486478&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI0OS8yNDEyMDEwMDIyMSIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D&CID=3844fed8%2Da530%2D436c%2Da1c6%2Da5b37d0d5322&FolderCTID=0x012000C5E7C58187A4F840918BCC6C67AF0774&id=%2Fteams%2FTWS%2D002472%2FShared%20Documents%2FGeneral%2FBI%20%26%20Advanced%20Analytics%2FProjects%2FBSC%5FPMS%2FSafety%2F10%2E%20Project%20Management)
