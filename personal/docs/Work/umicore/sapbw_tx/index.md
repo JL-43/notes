@@ -232,3 +232,11 @@ same/similar steps followed
 Used DSA.SAPBW_ZMS_MVMNT as the source for DSA.VW_ZMS_MVMNT_FULL
 	- DSA_ETL.VW_MX_ZMS_MVMNT_FULL can be decommissioned it seems
   	- acts as the latest extract and performs a union operation into DSA.VW_ZMS_MVMNT_FULL to update it
+
+## sap ZMS_SMPLNG migration
+
+same/similar steps followed
+
+### Impacted objects
+
+Used DSA.SAPBW_ZMS_SMPLNG as the source for DSA_ETL.VW_ZMS_SMPLNG_FULL
